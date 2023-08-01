@@ -20,9 +20,8 @@
 		6F5DFD4E2A79704100081DBD /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD412A79704100081DBD /* helpers.m */; };
 		6F5DFD4F2A79704100081DBD /* thanks_opa334dev_htrowii.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD422A79704100081DBD /* thanks_opa334dev_htrowii.m */; };
 		6F5DFD502A79704100081DBD /* krw.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD432A79704100081DBD /* krw.c */; };
-		6F5DFD512A79704100081DBD /* offsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD442A79704100081DBD /* offsets.m */; };
-		6F5DFD522A79704100081DBD /* vnode.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD452A79704100081DBD /* vnode.c */; };
 		6F5DFD532A79704100081DBD /* proc.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD462A79704100081DBD /* proc.c */; };
+		6F5DFD682A7974A100081DBD /* corrupted in Resources */ = {isa = PBXBuildFile; fileRef = 6F5DFD672A7974A100081DBD /* corrupted */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +68,7 @@
 		6F5DFD642A79704700081DBD /* physpuppet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physpuppet.h; sourceTree = "<group>"; };
 		6F5DFD652A79704700081DBD /* perf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = perf.h; sourceTree = "<group>"; };
 		6F5DFD662A79704700081DBD /* info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = info.h; sourceTree = "<group>"; };
+		6F5DFD672A7974A100081DBD /* corrupted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = corrupted; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +107,7 @@
 				6F5DFD1A2A796A6900081DBD /* Chicken_ButtApp.swift */,
 				6F5DFD1C2A796A6900081DBD /* ContentView.swift */,
 				6F5DFD1E2A796A6A00081DBD /* Assets.xcassets */,
+				6F5DFD672A7974A100081DBD /* corrupted */,
 				6F5DFD202A796A6A00081DBD /* Preview Content */,
 			);
 			path = "Chicken Butt";
@@ -286,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F5DFD682A7974A100081DBD /* corrupted in Resources */,
 				6F5DFD222A796A6A00081DBD /* Preview Assets.xcassets in Resources */,
 				6F5DFD1F2A796A6A00081DBD /* Assets.xcassets in Resources */,
 			);
@@ -298,7 +300,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F5DFD522A79704100081DBD /* vnode.c in Sources */,
 				6F5DFD502A79704100081DBD /* krw.c in Sources */,
 				6F5DFD342A796D2600081DBD /* vnode.c in Sources */,
 				6F5DFD4E2A79704100081DBD /* helpers.m in Sources */,
@@ -309,7 +310,6 @@
 				6F5DFD4B2A79704100081DBD /* fun.m in Sources */,
 				6F5DFD312A796D1900081DBD /* offsets.m in Sources */,
 				6F5DFD1B2A796A6900081DBD /* Chicken_ButtApp.swift in Sources */,
-				6F5DFD512A79704100081DBD /* offsets.m in Sources */,
 				6F5DFD4F2A79704100081DBD /* thanks_opa334dev_htrowii.m in Sources */,
 				6F5DFD532A79704100081DBD /* proc.c in Sources */,
 			);
@@ -447,8 +447,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,8 +480,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
