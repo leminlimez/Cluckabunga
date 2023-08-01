@@ -11,10 +11,18 @@
 		6F5DFD1D2A796A6900081DBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD1C2A796A6900081DBD /* ContentView.swift */; };
 		6F5DFD1F2A796A6A00081DBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5DFD1E2A796A6A00081DBD /* Assets.xcassets */; };
 		6F5DFD222A796A6A00081DBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5DFD212A796A6A00081DBD /* Preview Assets.xcassets */; };
-		6F5DFD2A2A796CA000081DBD /* fun in Resources */ = {isa = PBXBuildFile; fileRef = 6F5DFD292A796CA000081DBD /* fun */; };
-		6F5DFD2C2A796CAD00081DBD /* libkfd in Resources */ = {isa = PBXBuildFile; fileRef = 6F5DFD2B2A796CAD00081DBD /* libkfd */; };
 		6F5DFD312A796D1900081DBD /* offsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD302A796D1900081DBD /* offsets.m */; };
 		6F5DFD342A796D2600081DBD /* vnode.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD332A796D2600081DBD /* vnode.c */; };
+		6F5DFD372A796F1600081DBD /* OverrideImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD362A796F1600081DBD /* OverrideImplementation.swift */; };
+		6F5DFD4B2A79704100081DBD /* fun.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD3E2A79704100081DBD /* fun.m */; };
+		6F5DFD4C2A79704100081DBD /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD3F2A79704100081DBD /* vm_unaligned_copy_switch_race.c */; };
+		6F5DFD4D2A79704100081DBD /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD402A79704100081DBD /* grant_full_disk_access.m */; };
+		6F5DFD4E2A79704100081DBD /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD412A79704100081DBD /* helpers.m */; };
+		6F5DFD4F2A79704100081DBD /* thanks_opa334dev_htrowii.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD422A79704100081DBD /* thanks_opa334dev_htrowii.m */; };
+		6F5DFD502A79704100081DBD /* krw.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD432A79704100081DBD /* krw.c */; };
+		6F5DFD512A79704100081DBD /* offsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD442A79704100081DBD /* offsets.m */; };
+		6F5DFD522A79704100081DBD /* vnode.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD452A79704100081DBD /* vnode.c */; };
+		6F5DFD532A79704100081DBD /* proc.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F5DFD462A79704100081DBD /* proc.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,14 +31,44 @@
 		6F5DFD1C2A796A6900081DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F5DFD1E2A796A6A00081DBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F5DFD212A796A6A00081DBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6F5DFD292A796CA000081DBD /* fun */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fun; sourceTree = "<group>"; };
-		6F5DFD2B2A796CAD00081DBD /* libkfd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libkfd; sourceTree = "<group>"; };
 		6F5DFD2D2A796CBD00081DBD /* libkfd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libkfd.h; sourceTree = "<group>"; };
 		6F5DFD2E2A796D1900081DBD /* Chicken Butt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chicken Butt-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F5DFD2F2A796D1900081DBD /* offsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsets.h; sourceTree = "<group>"; };
 		6F5DFD302A796D1900081DBD /* offsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = offsets.m; sourceTree = "<group>"; };
 		6F5DFD322A796D2600081DBD /* vnode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vnode.h; sourceTree = "<group>"; };
 		6F5DFD332A796D2600081DBD /* vnode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vnode.c; sourceTree = "<group>"; };
+		6F5DFD362A796F1600081DBD /* OverrideImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverrideImplementation.swift; sourceTree = "<group>"; };
+		6F5DFD392A79704100081DBD /* thanks_opa334dev_htrowii.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thanks_opa334dev_htrowii.h; sourceTree = "<group>"; };
+		6F5DFD3A2A79704100081DBD /* vnode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vnode.h; sourceTree = "<group>"; };
+		6F5DFD3B2A79704100081DBD /* proc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proc.h; sourceTree = "<group>"; };
+		6F5DFD3C2A79704100081DBD /* offsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsets.h; sourceTree = "<group>"; };
+		6F5DFD3D2A79704100081DBD /* krw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krw.h; sourceTree = "<group>"; };
+		6F5DFD3E2A79704100081DBD /* fun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fun.m; sourceTree = "<group>"; };
+		6F5DFD3F2A79704100081DBD /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
+		6F5DFD402A79704100081DBD /* grant_full_disk_access.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
+		6F5DFD412A79704100081DBD /* helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
+		6F5DFD422A79704100081DBD /* thanks_opa334dev_htrowii.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thanks_opa334dev_htrowii.m; sourceTree = "<group>"; };
+		6F5DFD432A79704100081DBD /* krw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = krw.c; sourceTree = "<group>"; };
+		6F5DFD442A79704100081DBD /* offsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = offsets.m; sourceTree = "<group>"; };
+		6F5DFD452A79704100081DBD /* vnode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vnode.c; sourceTree = "<group>"; };
+		6F5DFD462A79704100081DBD /* proc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = proc.c; sourceTree = "<group>"; };
+		6F5DFD472A79704100081DBD /* fun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fun.h; sourceTree = "<group>"; };
+		6F5DFD482A79704100081DBD /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
+		6F5DFD492A79704100081DBD /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		6F5DFD4A2A79704100081DBD /* grant_full_disk_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
+		6F5DFD552A79704700081DBD /* krkw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krkw.h; sourceTree = "<group>"; };
+		6F5DFD582A79704700081DBD /* kread_sem_open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kread_sem_open.h; sourceTree = "<group>"; };
+		6F5DFD592A79704700081DBD /* kread_kqueue_workloop_ctl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kread_kqueue_workloop_ctl.h; sourceTree = "<group>"; };
+		6F5DFD5B2A79704700081DBD /* kwrite_sem_open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kwrite_sem_open.h; sourceTree = "<group>"; };
+		6F5DFD5C2A79704700081DBD /* kwrite_dup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kwrite_dup.h; sourceTree = "<group>"; };
+		6F5DFD5E2A79704700081DBD /* static_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = static_info.h; sourceTree = "<group>"; };
+		6F5DFD5F2A79704700081DBD /* dynamic_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_info.h; sourceTree = "<group>"; };
+		6F5DFD602A79704700081DBD /* puaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puaf.h; sourceTree = "<group>"; };
+		6F5DFD612A79704700081DBD /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		6F5DFD632A79704700081DBD /* smith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smith.h; sourceTree = "<group>"; };
+		6F5DFD642A79704700081DBD /* physpuppet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physpuppet.h; sourceTree = "<group>"; };
+		6F5DFD652A79704700081DBD /* perf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = perf.h; sourceTree = "<group>"; };
+		6F5DFD662A79704700081DBD /* info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = info.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +101,8 @@
 		6F5DFD192A796A6900081DBD /* Chicken Butt */ = {
 			isa = PBXGroup;
 			children = (
+				6F5DFD352A796F0400081DBD /* CoreControllers */,
+				6F5DFD2E2A796D1900081DBD /* Chicken Butt-Bridging-Header.h */,
 				6F5DFD282A796C9800081DBD /* Exploit */,
 				6F5DFD1A2A796A6900081DBD /* Chicken_ButtApp.swift */,
 				6F5DFD1C2A796A6900081DBD /* ContentView.swift */,
@@ -83,16 +123,108 @@
 		6F5DFD282A796C9800081DBD /* Exploit */ = {
 			isa = PBXGroup;
 			children = (
-				6F5DFD292A796CA000081DBD /* fun */,
-				6F5DFD2B2A796CAD00081DBD /* libkfd */,
+				6F5DFD542A79704700081DBD /* libkfd */,
+				6F5DFD382A79704100081DBD /* fun */,
 				6F5DFD2D2A796CBD00081DBD /* libkfd.h */,
 				6F5DFD2F2A796D1900081DBD /* offsets.h */,
 				6F5DFD302A796D1900081DBD /* offsets.m */,
-				6F5DFD2E2A796D1900081DBD /* Chicken Butt-Bridging-Header.h */,
 				6F5DFD332A796D2600081DBD /* vnode.c */,
 				6F5DFD322A796D2600081DBD /* vnode.h */,
 			);
 			path = Exploit;
+			sourceTree = "<group>";
+		};
+		6F5DFD352A796F0400081DBD /* CoreControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD362A796F1600081DBD /* OverrideImplementation.swift */,
+			);
+			path = CoreControllers;
+			sourceTree = "<group>";
+		};
+		6F5DFD382A79704100081DBD /* fun */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD392A79704100081DBD /* thanks_opa334dev_htrowii.h */,
+				6F5DFD3A2A79704100081DBD /* vnode.h */,
+				6F5DFD3B2A79704100081DBD /* proc.h */,
+				6F5DFD3C2A79704100081DBD /* offsets.h */,
+				6F5DFD3D2A79704100081DBD /* krw.h */,
+				6F5DFD3E2A79704100081DBD /* fun.m */,
+				6F5DFD3F2A79704100081DBD /* vm_unaligned_copy_switch_race.c */,
+				6F5DFD402A79704100081DBD /* grant_full_disk_access.m */,
+				6F5DFD412A79704100081DBD /* helpers.m */,
+				6F5DFD422A79704100081DBD /* thanks_opa334dev_htrowii.m */,
+				6F5DFD432A79704100081DBD /* krw.c */,
+				6F5DFD442A79704100081DBD /* offsets.m */,
+				6F5DFD452A79704100081DBD /* vnode.c */,
+				6F5DFD462A79704100081DBD /* proc.c */,
+				6F5DFD472A79704100081DBD /* fun.h */,
+				6F5DFD482A79704100081DBD /* vm_unaligned_copy_switch_race.h */,
+				6F5DFD492A79704100081DBD /* helpers.h */,
+				6F5DFD4A2A79704100081DBD /* grant_full_disk_access.h */,
+			);
+			path = fun;
+			sourceTree = "<group>";
+		};
+		6F5DFD542A79704700081DBD /* libkfd */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD552A79704700081DBD /* krkw.h */,
+				6F5DFD562A79704700081DBD /* krkw */,
+				6F5DFD5D2A79704700081DBD /* info */,
+				6F5DFD602A79704700081DBD /* puaf.h */,
+				6F5DFD612A79704700081DBD /* common.h */,
+				6F5DFD622A79704700081DBD /* puaf */,
+				6F5DFD652A79704700081DBD /* perf.h */,
+				6F5DFD662A79704700081DBD /* info.h */,
+			);
+			path = libkfd;
+			sourceTree = "<group>";
+		};
+		6F5DFD562A79704700081DBD /* krkw */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD572A79704700081DBD /* kread */,
+				6F5DFD5A2A79704700081DBD /* kwrite */,
+			);
+			path = krkw;
+			sourceTree = "<group>";
+		};
+		6F5DFD572A79704700081DBD /* kread */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD582A79704700081DBD /* kread_sem_open.h */,
+				6F5DFD592A79704700081DBD /* kread_kqueue_workloop_ctl.h */,
+			);
+			path = kread;
+			sourceTree = "<group>";
+		};
+		6F5DFD5A2A79704700081DBD /* kwrite */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD5B2A79704700081DBD /* kwrite_sem_open.h */,
+				6F5DFD5C2A79704700081DBD /* kwrite_dup.h */,
+			);
+			path = kwrite;
+			sourceTree = "<group>";
+		};
+		6F5DFD5D2A79704700081DBD /* info */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD5E2A79704700081DBD /* static_info.h */,
+				6F5DFD5F2A79704700081DBD /* dynamic_info.h */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		6F5DFD622A79704700081DBD /* puaf */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD632A79704700081DBD /* smith.h */,
+				6F5DFD642A79704700081DBD /* physpuppet.h */,
+			);
+			path = puaf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F5DFD2A2A796CA000081DBD /* fun in Resources */,
 				6F5DFD222A796A6A00081DBD /* Preview Assets.xcassets in Resources */,
-				6F5DFD2C2A796CAD00081DBD /* libkfd in Resources */,
 				6F5DFD1F2A796A6A00081DBD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,10 +298,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F5DFD522A79704100081DBD /* vnode.c in Sources */,
+				6F5DFD502A79704100081DBD /* krw.c in Sources */,
 				6F5DFD342A796D2600081DBD /* vnode.c in Sources */,
+				6F5DFD4E2A79704100081DBD /* helpers.m in Sources */,
+				6F5DFD372A796F1600081DBD /* OverrideImplementation.swift in Sources */,
+				6F5DFD4C2A79704100081DBD /* vm_unaligned_copy_switch_race.c in Sources */,
 				6F5DFD1D2A796A6900081DBD /* ContentView.swift in Sources */,
+				6F5DFD4D2A79704100081DBD /* grant_full_disk_access.m in Sources */,
+				6F5DFD4B2A79704100081DBD /* fun.m in Sources */,
 				6F5DFD312A796D1900081DBD /* offsets.m in Sources */,
 				6F5DFD1B2A796A6900081DBD /* Chicken_ButtApp.swift in Sources */,
+				6F5DFD512A79704100081DBD /* offsets.m in Sources */,
+				6F5DFD4F2A79704100081DBD /* thanks_opa334dev_htrowii.m in Sources */,
+				6F5DFD532A79704100081DBD /* proc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leminlimez.Chicken-Butt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Chicken Butt/Exploit/Chicken Butt-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Chicken Butt/Chicken Butt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -349,7 +489,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leminlimez.Chicken-Butt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Chicken Butt/Exploit/Chicken Butt-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Chicken Butt/Chicken Butt-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
