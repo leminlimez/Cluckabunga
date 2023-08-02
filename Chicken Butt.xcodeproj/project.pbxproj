@@ -101,6 +101,7 @@
 		6F5DFD192A796A6900081DBD /* Chicken Butt */ = {
 			isa = PBXGroup;
 			children = (
+				6F5DFD6D2A7B130200081DBD /* Views */,
 				6F5DFD352A796F0400081DBD /* CoreControllers */,
 				6F5DFD2E2A796D1900081DBD /* Chicken Butt-Bridging-Header.h */,
 				6F5DFD282A796C9800081DBD /* Exploit */,
@@ -226,6 +227,21 @@
 				6F5DFD642A79704700081DBD /* physpuppet.h */,
 			);
 			path = puaf;
+			sourceTree = "<group>";
+		};
+		6F5DFD6D2A7B130200081DBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD6E2A7B135800081DBD /* Tools */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F5DFD6E2A7B135800081DBD /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
