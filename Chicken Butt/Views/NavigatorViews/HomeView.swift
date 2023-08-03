@@ -218,13 +218,13 @@ struct HomeView: View {
                     Label("Exploit Preferences", systemImage: "ladybug")
                 }
             }
+            .navigationTitle("Chicken Butt")
         }
         .onAppear {
             if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, build != "0" {
                 versionBuildString = "Beta \(build)"
             }
         }
-        .navigationTitle("Chicken Butt")
     }
     
     func applyTweaks() {
