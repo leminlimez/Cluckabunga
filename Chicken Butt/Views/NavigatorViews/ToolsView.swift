@@ -40,10 +40,10 @@ struct ToolsView: View {
 //        .init(title: NSLocalizedString("Control Center", comment: "Category of tool"), systemImage: "switch.2", options: [
 //            .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi")
 //        ]),
-//        .init(title: NSLocalizedString("Apps", comment: "Category of tool"), systemImage: "app", options: [
+        .init(title: NSLocalizedString("Apps", comment: "Category of tool"), systemImage: "app", options: [
 //            .init(key: "CalculatorErrorView", view: AnyView(CalculatorErrorView()), title: NSLocalizedString("Calculator Error Message", comment: "Title of tool"), imageName: "function"),
-//            .init(key: "SettingsCustomizerView", view: AnyView(SettingsCustomizerView()), title: NSLocalizedString("Settings App Customizer", comment: "Title of tool"), imageName: "gear")
-//        ]),
+            .init(key: "SettingsCustomizerView", view: AnyView(SettingsCustomizerView()), title: NSLocalizedString("Settings App Customizer", comment: "Title of tool"), imageName: "gear")
+        ]),
 //        .init(title: NSLocalizedString("Other", comment: "Category of tool"), systemImage: "ellipsis", options: [
 //            .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
 //            .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),

@@ -83,11 +83,11 @@ struct HomeView: View {
         applySpringboardTweaks()
         
         // apply the settings tweak
-//        do {
-//            try SettingsCustomizerManager.apply()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        do {
+            try SettingsCustomizerManager.apply()
+        } catch {
+            print(error.localizedDescription)
+        }
         
         // Apply Locks
         if UserDefaults.standard.string(forKey: "CurrentLock") ?? "Default" != "Default" {
