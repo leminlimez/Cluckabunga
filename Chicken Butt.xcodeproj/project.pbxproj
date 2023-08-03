@@ -273,9 +273,9 @@
 		6F5DFD6D2A7B130200081DBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F5DFD6F2A7B13C600081DBD /* RootView.swift */,
 				6F5DFD712A7B149A00081DBD /* NavigatorViews */,
 				6F5DFD6E2A7B135800081DBD /* Tools */,
-				6F5DFD6F2A7B13C600081DBD /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
