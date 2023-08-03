@@ -195,7 +195,6 @@ class CowabungaAPI: ObservableObject {
 }
 
 class DownloadableTheme: Identifiable, Codable {
-    var id = UUID()
     var name: String
     var description: String
     var url: String

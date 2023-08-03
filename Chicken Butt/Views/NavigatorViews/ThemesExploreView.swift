@@ -13,7 +13,7 @@ struct ThemesExploreView: View {
     @ObservedObject var cowabungaAPI = CowabungaAPI.shared
     
     // lazyvgrid
-    @State private var gridItemLayout = [GridItem(.adaptive(minimum: 250))]
+    @State private var gridItemLayout = [GridItem(.adaptive(minimum: 150))]
     @State private var themes: [DownloadableTheme] = []
     
     @State var submitThemeAlertShown = false
