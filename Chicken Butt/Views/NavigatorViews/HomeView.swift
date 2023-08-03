@@ -182,7 +182,40 @@ struct HomeView: View {
                         }
                     }
                 } header: {
-                    Label("Preferences", systemImage: "gearshape")
+                    Label("App Preferences", systemImage: "gearshape")
+                }
+                
+                Section {
+                    Section {
+                        Picker(selection: $puaf_pages_index, label: Text("puaf pages:")) {
+                            ForEach(0 ..< puaf_pages_options.count, id: \.self) {
+                                Text(String(self.puaf_pages_options[$0]))
+                            }
+                        }.disabled(kfd != 0)
+                    }
+                    Section {
+                        Picker(selection: $puaf_method, label: Text("puaf method:")) {
+                            ForEach(0 ..< puaf_method_options.count, id: \.self) {
+                                Text(self.puaf_method_options[$0])
+                            }
+                        }.disabled(kfd != 0)
+                    }
+                    Section {
+                        Picker(selection: $kread_method, label: Text("kread method:")) {
+                            ForEach(0 ..< kread_method_options.count, id: \.self) {
+                                Text(self.kread_method_options[$0])
+                            }
+                        }.disabled(kfd != 0)
+                    }
+                    Section {
+                        Picker(selection: $kwrite_method, label: Text("kwrite method:")) {
+                            ForEach(0 ..< kwrite_method_options.count, id: \.self) {
+                                Text(self.kwrite_method_options[$0])
+                            }
+                        }.disabled(kfd != 0)
+                    }
+                } header: {
+                    Label("Exploit Preferences", systemImage: "ladybug")
                 }
             }
         }
