@@ -1,4 +1,3 @@
-![Artboard](https://github.com/leminlimez/Chicken-Butt/blob/b2f9c5e7697326a79fa840c59711652ea8375684/Chicken%20Butt/Assets.xcassets/AppIcon.appiconset/IMG_2137.png)
 # Chicken-Butt
 KFD Customization Tool for iOS 16.2-16.5 & 16.6b1
 
