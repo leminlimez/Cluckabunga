@@ -26,3 +26,11 @@ func overwriteWithFileImpl(
     
     funVnodeOverwrite2(cPathtoTargetFile, mutablecFileURL) // the magic is here
 }
+
+func overwriteFile(at filePath: String, with newData: Data) throws {
+    if FileManager.default.fileExists(atPath: URL.documents.appendingPathComponent("TempOverwriteFile").path) {
+        try? FileManager.default.removeItem(at: URL.documents.appendingPathComponent("TempOverwriteFile"))
+    }
+    try newData.write(to: URL.documents.appendingPathComponent("TempOverwriteFile"))
+    overwriteWithFileImpl(replacementURL: URL.documents.appendingPathComponent("TempOverwriteFile"), pathToTargetFile: filePath)
+}
