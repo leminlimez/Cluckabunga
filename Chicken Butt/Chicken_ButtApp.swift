@@ -11,7 +11,7 @@ import SwiftUI
 struct Chicken_ButtApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }
