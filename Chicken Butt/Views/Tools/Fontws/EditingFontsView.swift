@@ -130,7 +130,7 @@ struct EditingFontView: View {
                                     failed[url.lastPathComponent] = error.localizedDescription
                                 }
                             } else {
-                                let newFileName: String = url.pathExtension == "ttc" ? "SFUISoft.ttc" : "SFUI.ttf"
+                                let newFileName: String = url.pathExtension == "ttc" ? "ADTTime.ttc" : "SFUI.ttf"
                                 UIApplication.shared.confirmAlert(title: NSLocalizedString("Font \"\(url.lastPathComponent)\" not correctly named!", comment: ""), body: NSLocalizedString("Would you like to import it to replace the default font (\(newFileName))?", comment: "when the font file is not correctly named"), onOK: {
                                     // rename
                                     let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent(newFileName)
