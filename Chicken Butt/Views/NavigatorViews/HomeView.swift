@@ -12,6 +12,10 @@ struct HomeView: View {
     @State private var versionBuildString: String?
     
     // Preferences
+    @AppStorage("RespringType") var respringType: String = "Frontboard"
+    @AppStorage("LockPrefs") var lockPrefs: String = LockManager.getDefaultLockType()
+    private var deviceType = UIDevice().machineName
+    
     @AppStorage("HideDock") var hideDock: Bool = false
     @AppStorage("HideHomeBar") var hideHomeBar: Bool = false
     @AppStorage("HideFolderBG") var hideFolderBG: Bool = false
@@ -58,7 +62,126 @@ struct HomeView: View {
                             }
                             .buttonStyle(TintedButton(material: .systemMaterial, fullwidth: false))
                         }
+                        
+                        HStack {
+                            Button("Respring") {
+                                UsefulFunctions.respring()
+                            }
+                            .buttonStyle(TintedButton(color: .red, fullwidth: true))
+                            Button {
+                                UIApplication.shared.alert(title: NSLocalizedString("Info", comment: "respring info header"), body: NSLocalizedString("Respring is an action that allows restarting your Home Screen without rebooting your device.", comment: "respring info"))
+                            } label: {
+                                Image(systemName: "info")
+                            }
+                            .buttonStyle(TintedButton(material: .systemMaterial, fullwidth: false))
+                        }
                     }
+                }
+                
+                Section {
+                    // app preferences
+                    // MARK: Respring Type
+                    HStack {
+                        Text("Respring Type")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button(respringType ?? "Frontboard", action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Choose a respring type", comment: "Title for respring type"), message: NSLocalizedString("Try out each respring type and determine which works best for your needs.", comment: "Description for respring type"), preferredStyle: .actionSheet)
+                            
+                            // create the actions
+                            let frontboardAction = UIAlertAction(title: "Frontboard", style: .default) { (action) in
+                                // apply the type
+                                respringType = "Frontboard"
+                            }
+                            let backboardAction = UIAlertAction(title: "Backboard", style: .default) { (action) in
+                                // apply the type
+                                respringType = "Backboard"
+                            }
+                            
+                            if respringType == "Backboard" {
+                                backboardAction.setValue(true, forKey: "checked")
+                            } else {
+                                frontboardAction.setValue(true, forKey: "checked")
+                            }
+                            alert.addAction(frontboardAction)
+                            alert.addAction(backboardAction)
+                            
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
+                    // MARK: Lock Type Prefs
+                    if LockManager.deviceLockPath[deviceType] != nil {
+                        HStack {
+                            Text("Lock Type")
+                                .minimumScaleFactor(0.5)
+                            
+                            Spacer()
+                            
+                            Button(lockPrefs, action: {
+                                // create and configure alert controller
+                                let alert = UIAlertController(title: NSLocalizedString("Choose a lock preference", comment: "Title for lock preference"), message: NSLocalizedString("If the custom lock does not apply for you, try another option.", comment: "Description for lock preference"), preferredStyle: .actionSheet)
+                                let devModel = UIDevice().machineName
+                                
+                                // create the actions
+                                for (_, title) in LockManager.globalLockPaths.enumerated() {
+                                    var rec: String = ""
+                                    if LockManager.deviceLockPath[devModel] != nil && LockManager.deviceLockPath[devModel]! == title {
+                                        rec = " " + NSLocalizedString("(Recommended)", comment: "Recommended lock type")
+                                    }
+                                    
+                                    let newAction = UIAlertAction(title: title+rec, style: .default) { (action) in
+                                        // apply the type
+                                        lockPrefs = title
+                                        // set the default
+                                        UserDefaults.standard.set(title, forKey: "LockPrefs")
+                                    }
+                                    if lockPrefs == title {
+                                        // add a check mark if selected
+                                        newAction.setValue(true, forKey: "checked")
+                                    }
+                                    alert.addAction(newAction)
+                                }
+                                
+                                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
+                                    // cancels the action
+                                }
+                                
+                                // add the actions
+                                alert.addAction(cancelAction)
+                                
+                                let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                                // present popover for iPads
+                                alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                                alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                                
+                                // present the alert
+                                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                            })
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        }
+                    }
+                } header: {
+                    Label("Preferences", systemImage: "gearshape")
                 }
             }
         }
@@ -113,7 +236,7 @@ struct HomeView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             UIApplication.shared.dismissAlert(animated: false)
             // respring
-            restartFrontboard()
+            UsefulFunctions.respring()
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class UsefulFunctions {
     static func addEmptyData(matchingSize: Int, to plist: [String: Any]) throws -> Data {
@@ -52,5 +53,33 @@ class UsefulFunctions {
         }
 
         return newData
+    }
+    
+    public static func respring() {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        
+        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1) {
+            let windows: [UIWindow] = UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap(\.windows)
+            
+            for window in windows {
+                window.alpha = 0
+                window.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }
+        }
+        
+        animator.addCompletion { _ in
+            if UserDefaults.standard.string(forKey: "RespringType") ?? "Frontboard" == "Backboard" {
+                restartBackboard()
+            } else {
+                restartFrontboard()
+            }
+            
+            sleep(2) // give the springboard some time to restart before exiting
+            exit(0)
+        }
+        
+        animator.startAnimation()
     }
 }
