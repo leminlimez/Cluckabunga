@@ -41,6 +41,7 @@
 		6FE6D0502A7B46BB002CFD2F /* Haptic++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D04F2A7B46BB002CFD2F /* Haptic++.swift */; };
 		6FE6D0522A7B49F5002CFD2F /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0512A7B49F5002CFD2F /* URLCache+imageCache.swift */; };
 		6FE6D0552A7B4A6D002CFD2F /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0542A7B4A6D002CFD2F /* Color++.swift */; };
+		6FE6D0572A7B4F0B002CFD2F /* MachineName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0562A7B4F0B002CFD2F /* MachineName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		6FE6D04F2A7B46BB002CFD2F /* Haptic++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptic++.swift"; sourceTree = "<group>"; };
 		6FE6D0512A7B49F5002CFD2F /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
 		6FE6D0542A7B4A6D002CFD2F /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
+		6FE6D0562A7B4F0B002CFD2F /* MachineName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 				6F5DFD862A7B439300081DBD /* FilePickerViewControllerDelegate.swift */,
 				6FE6D04F2A7B46BB002CFD2F /* Haptic++.swift */,
 				6FE6D0512A7B49F5002CFD2F /* URLCache+imageCache.swift */,
+				6FE6D0562A7B4F0B002CFD2F /* MachineName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				6F5DFD4D2A79704100081DBD /* grant_full_disk_access.m in Sources */,
 				6F5DFD4B2A79704100081DBD /* fun.m in Sources */,
 				6F5DFD312A796D1900081DBD /* offsets.m in Sources */,
+				6FE6D0572A7B4F0B002CFD2F /* MachineName.swift in Sources */,
 				6F5DFD762A7B164C00081DBD /* TintedButton.swift in Sources */,
 				6F5DFD702A7B13C600081DBD /* RootView.swift in Sources */,
 				6F5DFD1B2A796A6900081DBD /* Chicken_ButtApp.swift in Sources */,
