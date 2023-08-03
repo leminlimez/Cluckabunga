@@ -51,6 +51,7 @@
 		6FE6D0682A7B5A8F002CFD2F /* ImportingFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */; };
 		6FE6D06A2A7B5AB8002CFD2F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */; };
 		6FE6D06C2A7C3FD2002CFD2F /* OtherModsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D06B2A7C3FD2002CFD2F /* OtherModsManager.swift */; };
+		6FE6D06E2A7C4698002CFD2F /* OtherModsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D06D2A7C4698002CFD2F /* OtherModsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportingFontsView.swift; sourceTree = "<group>"; };
 		6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		6FE6D06B2A7C3FD2002CFD2F /* OtherModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsManager.swift; sourceTree = "<group>"; };
+		6FE6D06D2A7C4698002CFD2F /* OtherModsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 				6F5DFD7F2A7B1E7000081DBD /* SpringBoardView.swift */,
 				6F5DFD812A7B28BA00081DBD /* LockView.swift */,
 				6FE6D05D2A7B58FF002CFD2F /* SettingsCustomizerView.swift */,
+				6FE6D06D2A7C4698002CFD2F /* OtherModsView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				6F5DFD1B2A796A6900081DBD /* Chicken_ButtApp.swift in Sources */,
 				6FE6D05C2A7B5830002CFD2F /* UsefulFunctions.swift in Sources */,
 				6F5DFD4F2A79704100081DBD /* thanks_opa334dev_htrowii.m in Sources */,
+				6FE6D06E2A7C4698002CFD2F /* OtherModsView.swift in Sources */,
 				6F5DFD532A79704100081DBD /* proc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
