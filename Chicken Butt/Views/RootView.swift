@@ -18,10 +18,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Tools", systemImage: "wrench.and.screwdriver.fill")
                 }
-//            ThemesExploreView()
-//                .tabItem {
-//                    Label("Explore", systemImage: "safari")
-//                }
+            ThemesExploreView()
+                .tabItem {
+                    Label("Explore", systemImage: "safari")
+                }
         }
     }
 }
