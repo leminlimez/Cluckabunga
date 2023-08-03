@@ -63,6 +63,9 @@ class LockManager {
     ]
     
     static func getLockType() -> String {
+        if deviceLockPath[UIDevice().machineName] != nil {
+            return deviceLockPath[UIDevice().machineName]!
+        }
         return UserDefaults.standard.string(forKey: "LockPrefs") ?? globalLockPaths[0]
     }
     
