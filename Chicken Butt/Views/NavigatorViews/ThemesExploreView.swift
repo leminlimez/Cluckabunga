@@ -57,9 +57,9 @@ struct ThemesExploreView: View {
                         LazyVGrid(columns: gridItemLayout) {
                             ForEach(themes) { theme in
                                 if searchTerm == "" || theme.name.lowercased().contains(searchTerm.lowercased()) || (theme.contact.values.first ?? "Unknown author").lowercased().contains(searchTerm.lowercased()) {
-                                    Button {
+                                    Button(action: {
                                         downloadTheme(theme: theme)
-                                    } label: {
+                                    }) {
                                         VStack(spacing: 0) {
                                             CachedAsyncImage(url: cowabungaAPI.getPreviewURLForTheme(theme: theme), urlCache: .imageCache) { image in
                                                 image
@@ -98,8 +98,7 @@ struct ThemesExploreView: View {
                                             .frame(height: 58)
                                         }
                                     }
-                                    .frame(minWidth: themeTypeShown == .icon ? 250 : 150)
-                                    //                                .frame(height: 250)
+                                    .frame(minWidth: 150)
                                     .background(Color(uiColor14: .secondarySystemBackground))
                                     .cornerRadius(10)
                                     .padding(4)

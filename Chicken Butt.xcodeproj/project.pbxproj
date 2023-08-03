@@ -39,6 +39,8 @@
 		6FE6D04B2A7B460B002CFD2F /* ThemesExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D04A2A7B460B002CFD2F /* ThemesExploreView.swift */; };
 		6FE6D04E2A7B4666002CFD2F /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE6D04D2A7B4666002CFD2F /* CachedAsyncImage */; };
 		6FE6D0502A7B46BB002CFD2F /* Haptic++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D04F2A7B46BB002CFD2F /* Haptic++.swift */; };
+		6FE6D0522A7B49F5002CFD2F /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0512A7B49F5002CFD2F /* URLCache+imageCache.swift */; };
+		6FE6D0552A7B4A6D002CFD2F /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0542A7B4A6D002CFD2F /* Color++.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		6FE6D0422A7B4474002CFD2F /* CowabungaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowabungaAPI.swift; sourceTree = "<group>"; };
 		6FE6D04A2A7B460B002CFD2F /* ThemesExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExploreView.swift; sourceTree = "<group>"; };
 		6FE6D04F2A7B46BB002CFD2F /* Haptic++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptic++.swift"; sourceTree = "<group>"; };
+		6FE6D0512A7B49F5002CFD2F /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
+		6FE6D0542A7B4A6D002CFD2F /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,13 +302,11 @@
 		6F5DFD742A7B164100081DBD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6F5DFD752A7B164C00081DBD /* TintedButton.swift */,
-				6F5DFD772A7B166F00081DBD /* MaterialView.swift */,
-				6F5DFD792A7B16BF00081DBD /* Alert++.swift */,
+				6FE6D0532A7B4A66002CFD2F /* UI */,
 				6F5DFD7B2A7B16E200081DBD /* Extensions.swift */,
 				6F5DFD862A7B439300081DBD /* FilePickerViewControllerDelegate.swift */,
-				6F5DFD882A7B43C900081DBD /* CornerRadius++.swift */,
 				6FE6D04F2A7B46BB002CFD2F /* Haptic++.swift */,
+				6FE6D0512A7B49F5002CFD2F /* URLCache+imageCache.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +325,18 @@
 				6FE6D0422A7B4474002CFD2F /* CowabungaAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		6FE6D0532A7B4A66002CFD2F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6F5DFD792A7B16BF00081DBD /* Alert++.swift */,
+				6FE6D0542A7B4A6D002CFD2F /* Color++.swift */,
+				6F5DFD882A7B43C900081DBD /* CornerRadius++.swift */,
+				6F5DFD772A7B166F00081DBD /* MaterialView.swift */,
+				6F5DFD752A7B164C00081DBD /* TintedButton.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +427,7 @@
 				6F5DFD342A796D2600081DBD /* vnode.c in Sources */,
 				6F5DFD7A2A7B16BF00081DBD /* Alert++.swift in Sources */,
 				6FE6D0432A7B4474002CFD2F /* CowabungaAPI.swift in Sources */,
+				6FE6D0552A7B4A6D002CFD2F /* Color++.swift in Sources */,
 				6F5DFD4E2A79704100081DBD /* helpers.m in Sources */,
 				6FE6D0502A7B46BB002CFD2F /* Haptic++.swift in Sources */,
 				6F5DFD802A7B1E7000081DBD /* SpringBoardView.swift in Sources */,
@@ -422,6 +437,7 @@
 				6F5DFD872A7B439300081DBD /* FilePickerViewControllerDelegate.swift in Sources */,
 				6F5DFD1D2A796A6900081DBD /* ContentView.swift in Sources */,
 				6F5DFD7E2A7B1D8700081DBD /* ToolsView.swift in Sources */,
+				6FE6D0522A7B49F5002CFD2F /* URLCache+imageCache.swift in Sources */,
 				6F5DFD892A7B43C900081DBD /* CornerRadius++.swift in Sources */,
 				6F5DFD782A7B166F00081DBD /* MaterialView.swift in Sources */,
 				6F5DFD4D2A79704100081DBD /* grant_full_disk_access.m in Sources */,
