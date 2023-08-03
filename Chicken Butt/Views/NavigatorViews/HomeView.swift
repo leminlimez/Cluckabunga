@@ -224,6 +224,13 @@ struct HomeView: View {
             let _ = LockManager.applyLock(lockName: lockName)
         }
         
+        // Apply Dynamic Island
+//        do {
+//            try OtherModsManager.applyDynamicIsland()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+        
         // kclose
         do_kclose(kfd)
         puaf_pages = 0

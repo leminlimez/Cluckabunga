@@ -50,6 +50,7 @@
 		6FE6D0662A7B5A80002CFD2F /* EditingFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0652A7B5A80002CFD2F /* EditingFontsView.swift */; };
 		6FE6D0682A7B5A8F002CFD2F /* ImportingFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */; };
 		6FE6D06A2A7B5AB8002CFD2F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */; };
+		6FE6D06C2A7C3FD2002CFD2F /* OtherModsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D06B2A7C3FD2002CFD2F /* OtherModsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		6FE6D0652A7B5A80002CFD2F /* EditingFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingFontsView.swift; sourceTree = "<group>"; };
 		6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportingFontsView.swift; sourceTree = "<group>"; };
 		6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		6FE6D06B2A7C3FD2002CFD2F /* OtherModsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +370,7 @@
 				6F5DFD842A7B28ED00081DBD /* LockManager.swift */,
 				6FE6D0582A7B57EA002CFD2F /* SettingsCustomizerManager.swift */,
 				6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */,
+				6FE6D06B2A7C3FD2002CFD2F /* OtherModsManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				6F5DFD802A7B1E7000081DBD /* SpringBoardView.swift in Sources */,
 				6F5DFD372A796F1600081DBD /* OverrideImplementation.swift in Sources */,
 				6F5DFD4C2A79704100081DBD /* vm_unaligned_copy_switch_race.c in Sources */,
+				6FE6D06C2A7C3FD2002CFD2F /* OtherModsManager.swift in Sources */,
 				6FE6D04B2A7B460B002CFD2F /* ThemesExploreView.swift in Sources */,
 				6FE6D0612A7B592A002CFD2F /* ImagePickerView.swift in Sources */,
 				6F5DFD872A7B439300081DBD /* FilePickerViewControllerDelegate.swift in Sources */,
@@ -635,7 +639,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Chicken Butt/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
@@ -650,7 +654,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leminlimez.Chicken-Butt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -668,7 +672,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Chicken Butt/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
@@ -683,7 +687,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.leminlimez.Chicken-Butt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
