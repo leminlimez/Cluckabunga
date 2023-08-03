@@ -89,6 +89,13 @@ struct HomeView: View {
             print(error.localizedDescription)
         }
         
+        // apply font
+        do {
+            try FontManager.applyCurrentFont()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         // Apply Locks
         if UserDefaults.standard.string(forKey: "CurrentLock") ?? "Default" != "Default" {
             let lockName: String = UserDefaults.standard.string(forKey: "CurrentLock")!

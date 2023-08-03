@@ -46,6 +46,10 @@
 		6FE6D05C2A7B5830002CFD2F /* UsefulFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D05B2A7B5830002CFD2F /* UsefulFunctions.swift */; };
 		6FE6D05E2A7B58FF002CFD2F /* SettingsCustomizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D05D2A7B58FF002CFD2F /* SettingsCustomizerView.swift */; };
 		6FE6D0612A7B592A002CFD2F /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0602A7B592A002CFD2F /* ImagePickerView.swift */; };
+		6FE6D0642A7B5A6B002CFD2F /* MainFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0632A7B5A6B002CFD2F /* MainFontsView.swift */; };
+		6FE6D0662A7B5A80002CFD2F /* EditingFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0652A7B5A80002CFD2F /* EditingFontsView.swift */; };
+		6FE6D0682A7B5A8F002CFD2F /* ImportingFontsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */; };
+		6FE6D06A2A7B5AB8002CFD2F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +119,10 @@
 		6FE6D05B2A7B5830002CFD2F /* UsefulFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulFunctions.swift; sourceTree = "<group>"; };
 		6FE6D05D2A7B58FF002CFD2F /* SettingsCustomizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCustomizerView.swift; sourceTree = "<group>"; };
 		6FE6D0602A7B592A002CFD2F /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		6FE6D0632A7B5A6B002CFD2F /* MainFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFontsView.swift; sourceTree = "<group>"; };
+		6FE6D0652A7B5A80002CFD2F /* EditingFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingFontsView.swift; sourceTree = "<group>"; };
+		6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportingFontsView.swift; sourceTree = "<group>"; };
+		6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +302,7 @@
 		6F5DFD6E2A7B135800081DBD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				6FE6D0622A7B5A5B002CFD2F /* Fontws */,
 				6F5DFD7F2A7B1E7000081DBD /* SpringBoardView.swift */,
 				6F5DFD812A7B28BA00081DBD /* LockView.swift */,
 				6FE6D05D2A7B58FF002CFD2F /* SettingsCustomizerView.swift */,
@@ -358,6 +367,7 @@
 			children = (
 				6F5DFD842A7B28ED00081DBD /* LockManager.swift */,
 				6FE6D0582A7B57EA002CFD2F /* SettingsCustomizerManager.swift */,
+				6FE6D0692A7B5AB8002CFD2F /* FontManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -368,6 +378,16 @@
 				6FE6D0602A7B592A002CFD2F /* ImagePickerView.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		6FE6D0622A7B5A5B002CFD2F /* Fontws */ = {
+			isa = PBXGroup;
+			children = (
+				6FE6D0632A7B5A6B002CFD2F /* MainFontsView.swift */,
+				6FE6D0652A7B5A80002CFD2F /* EditingFontsView.swift */,
+				6FE6D0672A7B5A8F002CFD2F /* ImportingFontsView.swift */,
+			);
+			path = Fontws;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,12 +482,14 @@
 				6F5DFD4E2A79704100081DBD /* helpers.m in Sources */,
 				6FE6D0502A7B46BB002CFD2F /* Haptic++.swift in Sources */,
 				6FE6D05E2A7B58FF002CFD2F /* SettingsCustomizerView.swift in Sources */,
+				6FE6D06A2A7B5AB8002CFD2F /* FontManager.swift in Sources */,
 				6F5DFD802A7B1E7000081DBD /* SpringBoardView.swift in Sources */,
 				6F5DFD372A796F1600081DBD /* OverrideImplementation.swift in Sources */,
 				6F5DFD4C2A79704100081DBD /* vm_unaligned_copy_switch_race.c in Sources */,
 				6FE6D04B2A7B460B002CFD2F /* ThemesExploreView.swift in Sources */,
 				6FE6D0612A7B592A002CFD2F /* ImagePickerView.swift in Sources */,
 				6F5DFD872A7B439300081DBD /* FilePickerViewControllerDelegate.swift in Sources */,
+				6FE6D0662A7B5A80002CFD2F /* EditingFontsView.swift in Sources */,
 				6F5DFD1D2A796A6900081DBD /* ContentView.swift in Sources */,
 				6F5DFD7E2A7B1D8700081DBD /* ToolsView.swift in Sources */,
 				6FE6D0522A7B49F5002CFD2F /* URLCache+imageCache.swift in Sources */,
@@ -476,7 +498,9 @@
 				6F5DFD4D2A79704100081DBD /* grant_full_disk_access.m in Sources */,
 				6F5DFD4B2A79704100081DBD /* fun.m in Sources */,
 				6F5DFD312A796D1900081DBD /* offsets.m in Sources */,
+				6FE6D0642A7B5A6B002CFD2F /* MainFontsView.swift in Sources */,
 				6FE6D0572A7B4F0B002CFD2F /* MachineName.swift in Sources */,
+				6FE6D0682A7B5A8F002CFD2F /* ImportingFontsView.swift in Sources */,
 				6F5DFD762A7B164C00081DBD /* TintedButton.swift in Sources */,
 				6FE6D0592A7B57EA002CFD2F /* SettingsCustomizerManager.swift in Sources */,
 				6F5DFD702A7B13C600081DBD /* RootView.swift in Sources */,
