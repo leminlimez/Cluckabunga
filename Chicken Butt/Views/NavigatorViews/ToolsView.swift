@@ -30,7 +30,7 @@ struct ToolsView: View {
 //        ]),
         .init(title: NSLocalizedString("Springboard", comment: "Category of tool"), systemImage: "square.grid.2x2", options: [
             .init(key: "SpringBoardView", view: AnyView(SpringBoardView()), title: NSLocalizedString("Springboard Tools", comment: "Title of tool"), imageName: "snowflake"),
-//            .init(key: "MainFontsView", view: AnyView(MainFontsView()), title: NSLocalizedString("Fonts", comment: "Title of tool"), imageName: "f.cursive")
+            .init(key: "MainFontsView", view: AnyView(MainFontsView()), title: NSLocalizedString("Fonts", comment: "Title of tool"), imageName: "f.cursive")
         ]),
         .init(title: NSLocalizedString("Lock Screen", comment: "Category of tool"), systemImage: "lock", options: [
 //            .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: NSLocalizedString("Passcode Faces", comment: "Title of tool"), imageName: "ellipsis.rectangle"),
