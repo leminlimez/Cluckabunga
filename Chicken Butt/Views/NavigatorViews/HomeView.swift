@@ -20,6 +20,9 @@ struct HomeView: View {
     @AppStorage("HideHomeBar") var hideHomeBar: Bool = false
     @AppStorage("HideFolderBG") var hideFolderBG: Bool = false
     
+    @AppStorage("ChangingDeviceSubtype") var changingDeviceSubtype: Bool = false
+    @AppStorage("NewDeviceSubtype") var newDeviceSubtype: Int = 0
+    
     // Exploit Stuffs
     @State private var kfd: UInt64 = 0
         
@@ -225,11 +228,14 @@ struct HomeView: View {
         }
         
         // Apply Dynamic Island
-//        do {
-//            try OtherModsManager.applyDynamicIsland()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        do {
+            if changingDeviceSubtype == true {
+                try OtherModsManager.applyDeviceSubtype(newSubType: newDeviceSubtype)
+                changingDeviceSubtype = false
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
         
         // kclose
         do_kclose(kfd)

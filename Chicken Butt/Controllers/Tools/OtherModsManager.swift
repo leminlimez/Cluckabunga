@@ -20,7 +20,7 @@ class OtherModsManager {
         return newDict
     }
     
-    public static func applyDynamicIsland() throws {
+    public static func applyDeviceSubtype(newSubType: Int) throws {
         if !FileManager.default.fileExists(atPath: URL.documents.appendingPathComponent("com.apple.MobileGestalt-BACKUP.plist").path) {
             let plistData = try Data(contentsOf: URL(filePath: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist"))
             try plistData.write(to: URL.documents.appendingPathComponent("com.apple.MobileGestalt-BACKUP.plist"))
@@ -28,9 +28,13 @@ class OtherModsManager {
         
         // create the temp file
         let plistData = try Data(contentsOf: URL.documents.appendingPathComponent("com.apple.MobileGestalt-BACKUP.plist"))
+        if newSubType == 0 {
+            try overwriteFile(at: "/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist", with: plistData)
+            return
+        }
         let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as! [String: Any]
         
-        let newPlist = changeDictValue(plist, "ArtworkDeviceSubType", 2556)
+        let newPlist = changeDictValue(plist, "ArtworkDeviceSubType", newSubType)
         let newData = try PropertyListSerialization.data(fromPropertyList: newPlist, format: .binary, options: 0)
         
         if newData.count == plistData.count {
