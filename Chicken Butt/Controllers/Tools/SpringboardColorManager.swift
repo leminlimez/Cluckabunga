@@ -317,6 +317,7 @@ class SpringboardColorManager {
                     }
                     // overwrite file
                     let path: String = "\(fileFolders[forType]!)\(file)\(fileExt[forType]!)"
+                    try overwriteFile(at: path, with: newData!)
                 } catch {
                     print(error.localizedDescription)
                 }

@@ -358,22 +358,7 @@ struct HomeView: View {
                     if replacementPaths[option.key] != nil {
                         var succeeded = true
                         for path in replacementPaths[option.key]! {
-                            if option.key == "HomeBar" {
-                                if let url: URL = Bundle.main.url(forResource: "HomeBarAssets", withExtension: "car") {
-                                    do {
-                                        let replacementCar = try Data(contentsOf: url)
-                                        try overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: replacementCar)
-                                    } catch {
-                                        print(error.localizedDescription)
-                                        succeeded = false
-                                    }
-                                } else {
-                                    print("Home bar file not found!")
-                                }
-                            } else {
-                                let randomGarbage = Data("###".utf8)
-                                try? overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: randomGarbage)
-                            }
+                            try? overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/" + path)
                         }
                     }
                 }

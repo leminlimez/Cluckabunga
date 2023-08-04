@@ -148,13 +148,13 @@ struct SpringBoardView: View {
                                 print("Failed to apply tweak \"" + option.title + "\"!!!")
                             }
                         } else {
-                            do {
-                                try SpringboardColorManager.revertFiles(forType: option.sbType!)
-                                print("Successfully applied tweak \"" + option.title + "\"")
-                            } catch {
-                                print("Failed to apply tweak \"" + option.title + "\"!!!")
-                                print(error.localizedDescription)
-                            }
+//                            do {
+//                                try SpringboardColorManager.revertFiles(forType: option.sbType!)
+//                                print("Successfully applied tweak \"" + option.title + "\"")
+//                            } catch {
+//                                print("Failed to apply tweak \"" + option.title + "\"!!!")
+//                                print(error.localizedDescription)
+//                            }
                         }
                     } else {
                         let succeeded = true
@@ -185,9 +185,9 @@ struct SpringBoardView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 UIApplication.shared.dismissAlert(animated: true)
                 if failed {
-                    UIApplication.shared.alert(body: "An error occurred when applying tweaks")
+                    UIApplication.shared.alert(body: "An error occurred when saving tweaks")
                 } else {
-                    UIApplication.shared.alert(title: NSLocalizedString("Successfully applied tweaks", comment: "Successfully applied tweaks"), body: NSLocalizedString("Respring to see changes", comment: "Respring to see changes"))
+                    UIApplication.shared.alert(title: NSLocalizedString("Successfully saved tweaks", comment: "Successfully saved tweaks"), body: NSLocalizedString("Apply on the main page", comment: "Apply on the main page"))
                 }
             }
         }
