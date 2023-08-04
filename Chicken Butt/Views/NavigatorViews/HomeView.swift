@@ -284,21 +284,105 @@ struct HomeView: View {
         }
     }
     
+    struct GeneralOption: Identifiable {
+        var id = UUID()
+        var key: String
+        var fileType: OverwritingFileTypes
+        var sbType: SpringboardColorManager.SpringboardType?
+    }
+    
     func applySpringboardTweaks() {
+        // Crappy code below!
+        let tweakOptions: [GeneralOption] = [
+            .init(key: "Dock", fileType: OverwritingFileTypes.springboard, sbType: .dock),
+            .init(key: "HomeBar", fileType: OverwritingFileTypes.springboard),
+            .init(key: "FolderBG", fileType: OverwritingFileTypes.springboard, sbType: .folder),
+            .init(key: "FolderBlur", fileType: OverwritingFileTypes.springboard, sbType: .folderBG),
+            .init(key: "Switcher", fileType: OverwritingFileTypes.springboard, sbType: .switcher),
+            .init(key: "CCBG", fileType: .springboard, sbType: .moduleBG),
+            .init(key: "CCModuleBG", fileType: OverwritingFileTypes.cc, sbType: .module),
+            .init(key: "PodBG", fileType: OverwritingFileTypes.springboard, sbType: .libraryFolder),
+            .init(key: "NotifBG", fileType: OverwritingFileTypes.springboard, sbType: .notif),
+            .init(key: "NotifShadow", fileType: .springboard, sbType: .notifShadow)
+        ]
+        enum SpringBoardOptions: String, CaseIterable {
+            case DockHidden = "DockHidden"
+            case HomeBarHidden = "HomeBar"
+            case FolderBGHidden = "FolderBGHidden"
+            case FolderBlurDisabled = "FolderBlurDisabled"
+            case SwitcherBlurDisabled = "SwitcherBlurDisabled"
+            case CCModuleBackgroundDisabled = "CCModuleBackgroundDisabled"
+            case PodBackgroundDisabled = "PodBackgroundDisabled"
+            case NotifBackgroundDisabled = "NotifBackgroundDisabled"
+            case ShortcutBanner = "ShortcutBanner"
+        }
+        let replacementPaths: [String: [String]] = [
+            SpringBoardOptions.DockHidden.rawValue: ["CoreMaterial.framework/dockDark.materialrecipe", "CoreMaterial.framework/dockLight.materialrecipe"],
+            SpringBoardOptions.HomeBarHidden.rawValue: ["MaterialKit.framework/Assets.car"],
+            SpringBoardOptions.FolderBGHidden.rawValue: ["SpringBoardHome.framework/folderLight.materialrecipe", "SpringBoardHome.framework/folderDark.materialrecipe", "SpringBoardHome.framework/folderDarkSimplified.materialrecipe"],
+            SpringBoardOptions.FolderBlurDisabled.rawValue: ["SpringBoardHome.framework/folderExpandedBackgroundHome.materialrecipe", "SpringBoardHome.framework/folderExpandedBackgroundHomeSimplified.materialrecipe"],
+            SpringBoardOptions.SwitcherBlurDisabled.rawValue: ["SpringBoard.framework/homeScreenBackdrop-application.materialrecipe", "SpringBoard.framework/homeScreenBackdrop-switcher.materialrecipe"],
+            SpringBoardOptions.CCModuleBackgroundDisabled.rawValue: ["CoreMaterial.framework/modules.materialrecipe"],
+            SpringBoardOptions.PodBackgroundDisabled.rawValue: ["SpringBoardHome.framework/podBackgroundViewLight.visualstyleset", "SpringBoardHome.framework/podBackgroundViewDark.visualstyleset"],
+            SpringBoardOptions.NotifBackgroundDisabled.rawValue: ["CoreMaterial.framework/plattersDark.materialrecipe", "CoreMaterial.framework/platters.materialrecipe"],
+            SpringBoardOptions.ShortcutBanner.rawValue: ["SpringBoard.framework/BannersAuthorizedBundleIDs.plist"]
+        ]
         // override
-        if hideDock {
-            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe")
-            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe")
-        }
-        
-        if hideHomeBar {
-            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car")
-        }
-        
-        if hideFolderBG {
-            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe")
-            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDark.materialrecipe")
-            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDarkSimplified.materialrecipe")
+//        if hideDock {
+//            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockLight.materialrecipe")
+//            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/CoreMaterial.framework/dockDark.materialrecipe")
+//        }
+//
+//        if hideHomeBar {
+//            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/MaterialKit.framework/Assets.car")
+//        }
+//
+//        if hideFolderBG {
+//            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderLight.materialrecipe")
+//            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDark.materialrecipe")
+//            overwriteWithFileImpl(replacementURL: URL(fileReferenceLiteralResourceName: "corrupted"), pathToTargetFile: "/System/Library/PrivateFrameworks/SpringBoardHome.framework/folderDarkSimplified.materialrecipe")
+//        }
+        for option in tweakOptions {
+            // get the user defaults
+            let value: String = UserDefaults.standard.string(forKey: option.key) ?? "Visible"
+            if value == "Color" || value == "Blur" || value == "Disabled" {
+                print("Applying tweak \"" + option.key + "\"")
+                var succeeded = false
+                print(value)
+                if option.sbType != nil {
+                    SpringboardColorManager.applyColor(forType: option.sbType!)
+                    succeeded = true
+                } else {
+//                    succeeded = overwriteFile(typeOfFile: option.fileType, fileIdentifier: option.key)
+                    // springboard tweak being applied
+                    if replacementPaths[option.key] != nil {
+                        var succeeded = true
+                        for path in replacementPaths[option.key]! {
+                            if option.key == "HomeBar" {
+                                if let url: URL = Bundle.main.url(forResource: "HomeBarAssets", withExtension: "car") {
+                                    do {
+                                        let replacementCar = try Data(contentsOf: url)
+                                        try overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: replacementCar)
+                                    } catch {
+                                        print(error.localizedDescription)
+                                        succeeded = false
+                                    }
+                                } else {
+                                    print("Home bar file not found!")
+                                }
+                            } else {
+                                let randomGarbage = Data("###".utf8)
+                                try? overwriteFile(at: "/System/Library/PrivateFrameworks/" + path, with: randomGarbage)
+                            }
+                        }
+                    }
+                }
+                if succeeded {
+                    print("Successfully applied tweak \"" + option.key + "\"")
+                } else {
+                    print("Failed to apply tweak \"" + option.key + "\"!!!")
+                }
+            }
         }
     }
 }

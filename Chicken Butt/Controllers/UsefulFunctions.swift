@@ -82,4 +82,18 @@ class UsefulFunctions {
         
         animator.startAnimation()
     }
+    
+    public static func getDefaultStr(forKey: String, defaultValue: String = "Visible") -> String {
+        let defaults = UserDefaults.standard
+        
+        return defaults.string(forKey: forKey) ?? defaultValue
+    }
+}
+
+enum OverwritingFileTypes {
+    case springboard
+    case cc
+    case plist
+    case audio
+    case region
 }
