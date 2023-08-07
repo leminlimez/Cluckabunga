@@ -33,7 +33,7 @@ struct ToolsView: View {
             .init(key: "MainFontsView", view: AnyView(MainFontsView()), title: NSLocalizedString("Fonts", comment: "Title of tool"), imageName: "f.cursive")
         ]),
         .init(title: NSLocalizedString("Lock Screen", comment: "Category of tool"), systemImage: "lock", options: [
-//            .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: NSLocalizedString("Passcode Faces", comment: "Title of tool"), imageName: "ellipsis.rectangle"),
+            .init(key: "PasscodeEditorView", view: AnyView(PasscodeEditorView()), title: NSLocalizedString("Passcode Faces", comment: "Title of tool"), imageName: "ellipsis.rectangle"),
             .init(key: "LockView", view: AnyView(LockView()), title: NSLocalizedString("Locks", comment: "Title of tool"), imageName: "lock"),
 //            .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: NSLocalizedString("Lock Screen Footnote", comment: "Title of tool"), imageName: "iphone")
         ]),
