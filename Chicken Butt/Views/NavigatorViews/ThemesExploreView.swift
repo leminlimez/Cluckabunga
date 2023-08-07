@@ -18,7 +18,8 @@ struct ThemesExploreView: View {
     
     @State var submitThemeAlertShown = false
     
-    @State var themeTypeShown = DownloadableTheme.ThemeType.lock
+    @State var themeTypeSelected = 0
+    @State var themeTypeShown = DownloadableTheme.ThemeType.passcode
     
     @State var filterType: ThemeFilterType = .random
     @State var searchTerm: String = ""
@@ -34,6 +35,15 @@ struct ThemesExploreView: View {
                         //URLCache.imageCache.removeAllCachedResponses()
                         loadThemes()
                     }
+                    VStack {
+                        Picker("", selection: $themeTypeSelected) {
+                            Text("Passcodes").tag(0)
+                            Text("Locks").tag(1)
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 10)
                     
                     if themes.isEmpty {
                         ProgressView()
@@ -126,7 +136,7 @@ struct ThemesExploreView: View {
             }
             .alert("Submit themes", isPresented: $submitThemeAlertShown, actions: {
                 Button("Join Discord", role: .none, action: {
-                    UIApplication.shared.open(URL(string: "https://discord.gg/MN8JgqSAqT")!)
+                    UIApplication.shared.open(URL(string: "https://discord.gg/Cowabunga")!)
                 })
                 Button("OK", role: .cancel, action: {})
             }, message: {
@@ -136,6 +146,13 @@ struct ThemesExploreView: View {
             
             //            .sheet(isPresented: $showLogin, content: { LoginView() })
             // maybe later
+            .onChange(of: themeTypeSelected) { newValue in
+                let map = [1: DownloadableTheme.ThemeType.passcode, 2: .lock]
+                themeTypeShown = map[newValue]!
+                
+                themes.removeAll()
+                loadThemes()
+            }
         }
         .navigationViewStyle(.stack)
     }
