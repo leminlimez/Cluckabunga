@@ -25,8 +25,86 @@ struct OtherModsView: View {
     @AppStorage("ChangingDeviceSubtype") var changingDeviceSubtype: Bool = false
     @AppStorage("NewDeviceSubtype") var newDeviceSubtype: Int = 0
     
+    @AppStorage("ChangingSupervision") var changingSupervision: Bool = false
+    @AppStorage("IsSupervised") var isSupervised: Bool = false
+    
+    @AppStorage("ChangingResolution") var changingResolution: Bool = false
+    @AppStorage("NewResolutionX") var newResolutionX: Int = 0
+    @AppStorage("NewResolutionY") var newResolutionY: Int = 0
+    
     var body: some View {
         List {
+            Section {
+                // device supervision
+//                HStack {
+//                    Image(systemName: "iphone")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 24, height: 24)
+//                        .foregroundColor(.blue)
+//                    
+//                    Text("Supervised")
+//                        .minimumScaleFactor(0.5)
+//                    
+//                    Spacer()
+//                    
+//                    Toggle(isOn: $isSupervised) {
+//                        
+//                    }.onChange(of: isSupervised) { new in
+//                        changingSupervision = true
+//                    }
+//                    .padding(.leading, 10)
+//                }
+                
+                // device resolution
+                HStack {
+                    Image(systemName: "iphone")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.blue)
+                    
+                    Text("Resolution")
+                        .minimumScaleFactor(0.5)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        if changingResolution {
+                            changingResolution = false
+                        } else {
+                            // ask the user for a custom size
+                            let sizeAlert = UIAlertController(title: NSLocalizedString("Enter New Resolution", comment: "res changer"), message: "", preferredStyle: .alert)
+                            // bring up the text prompts
+                            sizeAlert.addTextField { (textField) in
+                                // text field for width
+                                textField.placeholder = NSLocalizedString("Width", comment: "Width of passcode keys")
+                            }
+                            sizeAlert.addTextField { (textField) in
+                                // text field for height
+                                textField.placeholder = NSLocalizedString("Height", comment: "Height of passcode keys")
+                            }
+                            sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { (action) in
+                                // set the sizes
+                                // check if they entered something and if it is in bounds
+                                let width: Int = Int(sizeAlert.textFields?[0].text! ?? "-1") ?? -1
+                                let height: Int = Int(sizeAlert.textFields?[1].text! ?? "-1") ?? -1
+                                newResolutionX = width
+                                newResolutionY = height
+                                changingResolution = true
+                            })
+                            sizeAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
+                                // cancel the process
+                            })
+                            UIApplication.shared.windows.first?.rootViewController?.present(sizeAlert, animated: true, completion: nil)
+                        }
+                    }) {
+                        Text(changingResolution ? "(\(newResolutionX)x\(newResolutionY)) Remove" : "Set")
+                            .foregroundColor(changingResolution ? .red : .blue)
+                    }
+                    .padding(.leading, 10)
+                }
+            }
             Section {
                 // device subtype
                 if UIDevice.current.userInterfaceIdiom == .phone {

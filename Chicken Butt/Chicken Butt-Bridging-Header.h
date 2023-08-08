@@ -6,4 +6,5 @@
 #import "exploit/fun/fun.h"
 #import "exploit/fun/grant_full_disk_access.h"
 #import "exploit/fun/krw.h"
+#import "exploit/fun/utils.h"
 #import "exploit/fun/thanks_opa334dev_htrowii.h"
