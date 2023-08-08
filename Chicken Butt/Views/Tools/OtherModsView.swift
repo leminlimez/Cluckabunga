@@ -42,14 +42,14 @@ struct OtherModsView: View {
 //                        .aspectRatio(contentMode: .fit)
 //                        .frame(width: 24, height: 24)
 //                        .foregroundColor(.blue)
-//                    
+//
 //                    Text("Supervised")
 //                        .minimumScaleFactor(0.5)
-//                    
+//
 //                    Spacer()
-//                    
+//
 //                    Toggle(isOn: $isSupervised) {
-//                        
+//
 //                    }.onChange(of: isSupervised) { new in
 //                        changingSupervision = true
 //                    }

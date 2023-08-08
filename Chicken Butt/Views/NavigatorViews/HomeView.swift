@@ -14,7 +14,7 @@ struct HomeView: View {
     // Preferences
     @AppStorage("RespringType") var respringType: String = "Frontboard"
     @AppStorage("LockPrefs") var lockPrefs: String = LockManager.getDefaultLockType()
-    @AppStorage("passcodeFaceSize") var passcodeFaceSize: Int = KeySize.small.rawValue
+    @AppStorage("passcodeFaceSize") var passcodeFaceSize: Int = KeySize.big.rawValue
     private var deviceType = UIDevice().machineName
     
     @AppStorage("HideDock") var hideDock: Bool = false
