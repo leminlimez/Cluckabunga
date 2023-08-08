@@ -24,6 +24,13 @@ struct HomeView: View {
     @AppStorage("ChangingDeviceSubtype") var changingDeviceSubtype: Bool = false
     @AppStorage("NewDeviceSubtype") var newDeviceSubtype: Int = 0
     
+    @AppStorage("ChangingSupervision") var changingSupervision: Bool = false
+    @AppStorage("IsSupervised") var isSupervised: Bool = false
+    
+    @AppStorage("ChangingResolution") var changingResolution: Bool = false
+    @AppStorage("NewResolutionX") var newResolutionX: Int = 0
+    @AppStorage("NewResolutionY") var newResolutionY: Int = 0
+    
     // Exploit Stuffs
     @State private var kfd: UInt64 = 0
         
@@ -317,6 +324,17 @@ struct HomeView: View {
             }
         } catch {
             print(error.localizedDescription)
+        }
+        
+        // Apply Supervision
+//        if changingSupervision {
+//            setSuperviseMode(isSupervised)
+//            changingSupervision = false
+//        }
+        
+        // Apply resolution
+        if changingResolution {
+            ResSet16(newResolutionX, newResolutionY)
         }
         
         // kclose
