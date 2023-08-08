@@ -14,6 +14,7 @@ struct HomeView: View {
     // Preferences
     @AppStorage("RespringType") var respringType: String = "Frontboard"
     @AppStorage("LockPrefs") var lockPrefs: String = LockManager.getDefaultLockType()
+    @AppStorage("passcodeFaceSize") var passcodeFaceSize: Int = KeySize.small.rawValue
     private var deviceType = UIDevice().machineName
     
     @AppStorage("HideDock") var hideDock: Bool = false
@@ -131,6 +132,54 @@ struct HomeView: View {
                         .padding(.leading, 10)
                     }
                     
+                    // MARK: Passcode Face Size
+                    HStack {
+                        Text("Passcode Face Size")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button("\(passcodeFaceSize == KeySize.big.rawValue ? "Big" : "Small") (\(passcodeFaceSize))", action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: NSLocalizedString("Choose a face size", comment: "Title for face size"), message: "", preferredStyle: .actionSheet)
+                            
+                            // create the actions
+                            let smallAction = UIAlertAction(title: "Small (\(KeySize.small.rawValue))", style: .default) { (action) in
+                                // apply the type
+                                passcodeFaceSize = KeySize.small.rawValue
+                            }
+                            let bigAction = UIAlertAction(title: "Big (\(KeySize.big.rawValue))", style: .default) { (action) in
+                                // apply the type
+                                passcodeFaceSize = KeySize.big.rawValue
+                            }
+                            
+                            if passcodeFaceSize == KeySize.small.rawValue {
+                                smallAction.setValue(true, forKey: "checked")
+                            } else {
+                                bigAction.setValue(true, forKey: "checked")
+                            }
+                            alert.addAction(smallAction)
+                            alert.addAction(bigAction)
+                            
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                        })
+                        .foregroundColor(.blue)
+                        .padding(.leading, 10)
+                    }
+                    
                     // MARK: Lock Type Prefs
                     if LockManager.deviceLockPath[deviceType] != nil {
                         HStack {
@@ -218,7 +267,7 @@ struct HomeView: View {
                     Label("Exploit Preferences", systemImage: "ladybug")
                 }
             }
-            .navigationTitle("Chicken Butt")
+            .navigationTitle("Cluckabunga")
         }
         .onAppear {
             if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, build != "0" {
