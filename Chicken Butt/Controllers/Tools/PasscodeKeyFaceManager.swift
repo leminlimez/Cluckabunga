@@ -33,6 +33,54 @@ enum TelephonyDirType {
 class PasscodeKeyFaceManager {
     private static var savedDialerURL: String = ""
     public static let CharacterTable: [Character] = ["0","1","2","3","4","5","6","7","8","9", "*", "#"]
+    
+    // Exploit Stuffs
+    @State private static var kfd: UInt64 = 0
+        
+    private static var puaf_pages_options = [16, 32, 64, 128, 256, 512, 1024, 2048]
+    @AppStorage("PUAF_Pages_Index") private static var puaf_pages_index = 7
+    @AppStorage("PUAF_Pages") private static var puaf_pages = 0
+    
+    private static var puaf_method_options = ["physpuppet", "smith"]
+    @AppStorage("PUAF_Method") private static var puaf_method = 1
+    
+    private static var kread_method_options = ["kqueue_workloop_ctl", "sem_open"]
+    @AppStorage("KRead_Method") private static var kread_method = 1
+    
+    private static var kwrite_method_options = ["dup", "sem_open"]
+    @AppStorage("KWrite_Method") private static var kwrite_method = 1
+    
+    static func applyFaces() throws {
+        // kopen
+        puaf_pages = puaf_pages_options[puaf_pages_index]
+        kfd = do_kopen(UInt64(puaf_pages), UInt64(puaf_method), UInt64(kread_method), UInt64(kwrite_method))
+        
+        // temporarily ignore dialer keys for testing
+        var enabledFaces: [String] = []
+        if FileManager.default.fileExists(atPath: URL.documents.appendingPathComponent("ChangingPasscodeKeys").path) {
+            for url in try FileManager.default.contentsOfDirectory(at: URL.documents.appendingPathComponent("ChangingPasscodeKeys"), includingPropertiesForKeys: nil) {
+                enabledFaces.append(url.deletingPathExtension().lastPathComponent.replacingOccurrences(of: "PasscodeKey-", with: ""))
+            }
+        }
+        print("Faces: \(enabledFaces)")
+        // Convert the Swift array of strings to a C-style array of char*
+        var cFaces: [UnsafeMutablePointer<CChar>?] = enabledFaces.map { strdup($0) }
+        // Add a null pointer at the end to signal the end of the array
+        cFaces.append(nil)
+
+        // Pass the C-style array to do_fun along with the count of tweaks
+        cFaces.withUnsafeMutableBufferPointer { buffer in
+            do_fun2(buffer.baseAddress, Int32(buffer.count - 1))
+        }
+
+        // Deallocate the C-style strings after use to avoid memory leaks
+        cFaces.forEach { free($0) }
+        
+        // kclose
+        do_kclose(kfd)
+        puaf_pages = 0
+        kfd = 0
+    }
 
     static func setFace(_ image: UIImage, for n: Character, _ dir: TelephonyDirType, colorScheme: ColorScheme, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
         // this part could be cleaner
@@ -51,6 +99,9 @@ class PasscodeKeyFaceManager {
         
         let url = try getURL(for: n, mask: (colorScheme == .light), dir)
         guard let png = newImage?.pngData() else { throw "No png data" }
+        if FileManager.default.fileExists(atPath: url.path) {
+            try? FileManager.default.removeItem(at: url)
+        }
         try png.write(to: url)
     }
     
@@ -94,7 +145,7 @@ class PasscodeKeyFaceManager {
     
     static func setFacesFromTheme(_ url: URL, _ dir: TelephonyDirType, colorScheme: ColorScheme, keySize: CGFloat, customX: CGFloat, customY: CGFloat) throws {
         let fm = FileManager.default
-        let teleURL = try telephonyUIURL(dir)
+//        let teleURL = try telephonyUIURL(dir)
         let defaultSize = getDefaultFaceSize()
         
         var finalURL = url
@@ -167,7 +218,10 @@ class PasscodeKeyFaceManager {
                     continue
                 }
                 guard let png = newImage?.pngData() else { continue }
-                try png.write(to: teleURL.appendingPathComponent(newURL.lastPathComponent))
+                if FileManager.default.fileExists(atPath: newURL.path) {
+                    try? FileManager.default.removeItem(at: newURL)
+                }
+                try png.write(to: newURL)
             }
         }
         if isTemp {
@@ -222,9 +276,9 @@ class PasscodeKeyFaceManager {
     
     static func getFaces(_ dir: TelephonyDirType, colorScheme: ColorScheme) throws -> [UIImage?] {
         if dir == .passcode {
-            return try ["0","1","2","3","4","5","6","7","8","9", "9", "9"].map { try getFace(for: $0, dir) }
+            return try ["0","1","2","3","4","5","6","7","8","9", "9", "9"].map { try? getFace(for: $0, dir) }
         } else if dir == .dialer {
-            return try ["0","1","2","3","4","5","6","7","8","9", "*", "#"].map { try getFace(for: $0, mask: (colorScheme == .light), dir) }
+            return try ["0","1","2","3","4","5","6","7","8","9", "*", "#"].map { try? getFace(for: $0, mask: (colorScheme == .light), dir) }
         } else {
             throw "Incorrect directory type"
         }
@@ -234,14 +288,18 @@ class PasscodeKeyFaceManager {
         return UIImage(data: try Data(contentsOf: getURL(for: n, mask: mask, dir)))
     }
     
-    static func getURL(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> URL { // O(n^2), but works
+    static func getURL(for n: Character, mask: Bool = false, _ dir: TelephonyDirType) throws -> URL {
         let fm = FileManager.default
-        for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(dir), includingPropertiesForKeys: nil) {
-            if imageURL.path.contains("-\(n)-") && (dir == .passcode || (mask && imageURL.path.contains("mask")) || (!mask && !imageURL.path.contains("mask"))) {
-                return imageURL
-            }
+        if !FileManager.default.fileExists(atPath: URL.documents.appendingPathComponent("ChangingPasscodeKeys").path) {
+            try FileManager.default.createDirectory(at: URL.documents.appendingPathComponent("ChangingPasscodeKeys"), withIntermediateDirectories: false)
         }
-        throw "Passcode face #\(n) couldn't be found."
+        return URL.documents.appendingPathComponent("ChangingPasscodeKeys").appendingPathComponent("PasscodeKey-\(n).png")
+//        for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(dir), includingPropertiesForKeys: nil) {
+//            if imageURL.path.contains("-\(n)-") && (dir == .passcode || (mask && imageURL.path.contains("mask")) || (!mask && !imageURL.path.contains("mask"))) {
+//                return imageURL
+//            }
+//        }
+//        throw "Passcode face #\(n) couldn't be found."
     }
     
     static func getDialerDataURL() throws -> URL {
@@ -293,20 +351,21 @@ class PasscodeKeyFaceManager {
         }
         
         // if it doesn't, create it
-        do {
-            let teleURL = try telephonyUIURL(TelephonyDirType.passcode)
-            let fm = FileManager.default
-            size = Int(UIImage(contentsOfFile: try fm.contentsOfDirectory(at: teleURL, includingPropertiesForKeys: nil)[0].path)?.size.height ?? 150)
-            // set the value and return
-            defaults.set(size, forKey: "passcodeFaceSize")
-            return size
-        } catch {
-            // just set the defaults to 150
-            print("Could not get sizes")
-            print(error.localizedDescription)
-            //defaults.set(150, forKey: "passcodeFaceSize")
-            return 150
-        }
+//        do {
+//            let teleURL = try telephonyUIURL(TelephonyDirType.passcode)
+//            let fm = FileManager.default
+//            size = Int(UIImage(contentsOfFile: try fm.contentsOfDirectory(at: teleURL, includingPropertiesForKeys: nil)[0].path)?.size.height ?? 150)
+//            // set the value and return
+//            defaults.set(size, forKey: "passcodeFaceSize")
+//            return size
+//        } catch {
+//            // just set the defaults to 150
+//            print("Could not get sizes")
+//            print(error.localizedDescription)
+//            //defaults.set(150, forKey: "passcodeFaceSize")
+//            return 150
+//        }
+        return 150
     }
     
     // get the directory of the saved passcodes

@@ -125,18 +125,28 @@ struct PasscodeEditorView: View {
                 VStack {
                     Spacer()
                     HStack {
-                        Button("Reset faces") {
+                        Button("Apply") {
                             do {
-                                try PasscodeKeyFaceManager.reset(directoryType)
+                                try PasscodeKeyFaceManager.applyFaces()
                                 if directoryType == .passcode {
-//                                    respring()
-                                } else {
-                                    UIApplication.shared.alert(title: NSLocalizedString("Dialer keys successfully cleared!", comment: ""), body: NSLocalizedString("Please close and reopen the Phone app.", comment: ""))
+                                    UsefulFunctions.respring()
                                 }
                             } catch {
                                 UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
                             }
                         }
+//                        Button("Reset faces") {
+//                            do {
+//                                try PasscodeKeyFaceManager.reset(directoryType)
+//                                if directoryType == .passcode {
+//                                    respring()
+//                                } else {
+//                                    UIApplication.shared.alert(title: NSLocalizedString("Dialer keys successfully cleared!", comment: ""), body: NSLocalizedString("Please close and reopen the Phone app.", comment: ""))
+//                                }
+//                            } catch {
+//                                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
+//                            }
+//                        }
                         Spacer()
                         Button("Choose size") {
                             // create and configure alert controller
@@ -251,24 +261,24 @@ struct PasscodeEditorView: View {
                 if directoryType == .passcode {
                     HStack {
                         Spacer()
-                        Button(action: {
-                            directoryType = .dialer
-                            ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
-                            currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
-                            do {
-                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
-                                
-                                if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
-                                    changedFaces = faces
-                                }
-                            } catch {
-                                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
-                            }
-                        }) {
-                            Image(systemName: "arrow.right.square")
-                        }
-                        .font(.system(size: 30))
-                        .padding(10)
+//                        Button(action: {
+//                            directoryType = .dialer
+//                            ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
+//                            currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
+//                            do {
+//                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
+//
+//                                if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
+//                                    changedFaces = faces
+//                                }
+//                            } catch {
+//                                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
+//                            }
+//                        }) {
+//                            Image(systemName: "arrow.right.square")
+//                        }
+//                        .font(.system(size: 30))
+//                        .padding(10)
                     }
                 } else if directoryType == .dialer {
                     HStack {

@@ -147,7 +147,7 @@ struct ThemesExploreView: View {
             //            .sheet(isPresented: $showLogin, content: { LoginView() })
             // maybe later
             .onChange(of: themeTypeSelected) { newValue in
-                let map = [1: DownloadableTheme.ThemeType.passcode, 2: .lock]
+                let map = [0: DownloadableTheme.ThemeType.passcode, 1: .lock]
                 themeTypeShown = map[newValue]!
                 
                 themes.removeAll()
