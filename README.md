@@ -1,4 +1,4 @@
-# Chicken-Butt
+# Cluckabunga
 KFD Customization Tool for iOS 16.2-16.5 & 16.6b1
 
 IPA available in the [Releases](https://github.com/leminlimez/Chicken-Butt/releases/latest) section.
@@ -16,12 +16,13 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS).
     - Custom number of frames + custom animation speeds (see below)
  
 - Explore
-    - Find and download themes for locks!
+    - Find and download themes for locks and passcodes!
     - If you would like to submit your own works, please [join the discord](https://discord.gg/Cowabunga)
  
 - Other Tools
     - Custom Fonts
     - Settings App Customizer
+    - Passcode Key Changer
  
 ## Installing
 You can install through AltStore, Sideloadly, or Xcode
@@ -50,7 +51,7 @@ Just build like a normal Xcode project. Sign using your own team and bundle iden
 
 ## Credits
 - [Cowabunga](https://github.com/leminlimez/Cowabunga) for a lot of the code.
-- [KFDFontOverwrite](https://github.com/hrtowii/WDBFontOverwrite) for offsets.
+- Misaka for offsets.
 
 ## Suggestions and support
 You can either create an issue on this GitHub repo, or join our [Discord server](https://discord.gg/Cowabunga) where us, or other members, might help you.

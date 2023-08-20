@@ -351,22 +351,22 @@ struct PasscodeEditorView: View {
                 .foregroundColor(.blue)
                 
                 // export key
-                Button(action: {
-                    do {
-                        let archiveURL: URL? = try PasscodeKeyFaceManager.exportFaceTheme(directoryType)
-                        // show share menu
-                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
-                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
-                    } catch {
-                        UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
-                    }
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                }
-                .foregroundColor(.blue)
+//                Button(action: {
+//                    do {
+//                        let archiveURL: URL? = try PasscodeKeyFaceManager.exportFaceTheme(directoryType)
+//                        // show share menu
+//                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
+//                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+//                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+//                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+//                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
+//                    } catch {
+//                        UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
+//                    }
+//                }) {
+//                    Image(systemName: "square.and.arrow.up")
+//                }
+//                .foregroundColor(.blue)
             }
         }
         .sheet(isPresented: $isImporting) {
