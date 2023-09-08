@@ -1,9 +1,9 @@
 # Cluckabunga
 KFD Customization Tool for iOS 16.2-16.5 & 16.6b1
 
-IPA available in the [Releases](https://github.com/leminlimez/Chicken-Butt/releases/latest) section.
+IPA available in the [Releases](https://github.com/leminlimez/Cluckabunga/releases/latest) section.
 
-Support us on [Patreon](https://patreon.com/Cowabunga_iOS).
+Support me on [Ko-Fi](https://ko-fi.com/leminlimez).
 
 ## Features
 - Springboard
@@ -22,6 +22,7 @@ Support us on [Patreon](https://patreon.com/Cowabunga_iOS).
 - Other Tools
     - Custom Fonts
     - Settings App Customizer
+    - Apple Cards Changer
     - Passcode Key Changer
  
 ## Installing
@@ -51,6 +52,7 @@ Just build like a normal Xcode project. Sign using your own team and bundle iden
 
 ## Credits
 - [Cowabunga](https://github.com/leminlimez/Cowabunga) for a lot of the code.
+- [Cardinal](https://github.com/leminlimez/Cardinal) for Card Changer.
 - Misaka for offsets.
 
 ## Suggestions and support
