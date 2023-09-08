@@ -82,6 +82,7 @@
 		6FE6D2C22AABADAD002CFD2F /* ImagePickerBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D2C12AABADAD002CFD2F /* ImagePickerBView.swift */; };
 		6FE6D2C42AABADF7002CFD2F /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6D2C32AABADF7002CFD2F /* MainCardView.swift */; };
 		6FE6D2C72AABAE4F002CFD2F /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE6D2C62AABAE4F002CFD2F /* ACarousel */; };
+		6FE6D2C92AABBE87002CFD2F /* ADD_YOUR_OWN.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6D2C82AABBE87002CFD2F /* ADD_YOUR_OWN.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +100,7 @@
 		6F5DFD5B2A79704700081DBD /* kwrite_sem_open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kwrite_sem_open.h; sourceTree = "<group>"; };
 		6F5DFD5C2A79704700081DBD /* kwrite_dup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kwrite_dup.h; sourceTree = "<group>"; };
 		6F5DFD5E2A79704700081DBD /* static_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = static_info.h; sourceTree = "<group>"; };
-		6F5DFD5F2A79704700081DBD /* dynamic_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_info.h; sourceTree = "<group>"; };
+		6F5DFD5F2A79704700081DBD /* OLD_dynamic_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLD_dynamic_info.h; sourceTree = "<group>"; };
 		6F5DFD602A79704700081DBD /* puaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puaf.h; sourceTree = "<group>"; };
 		6F5DFD612A79704700081DBD /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		6F5DFD632A79704700081DBD /* smith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smith.h; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		6FE6D2BF2AABAD96002CFD2F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6FE6D2C12AABADAD002CFD2F /* ImagePickerBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerBView.swift; sourceTree = "<group>"; };
 		6FE6D2C32AABADF7002CFD2F /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
+		6FE6D2C82AABBE87002CFD2F /* ADD_YOUR_OWN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADD_YOUR_OWN.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				6F5DFD5E2A79704700081DBD /* static_info.h */,
-				6F5DFD5F2A79704700081DBD /* dynamic_info.h */,
+				6FE6D2C82AABBE87002CFD2F /* ADD_YOUR_OWN.txt */,
+				6F5DFD5F2A79704700081DBD /* OLD_dynamic_info.h */,
 			);
 			path = info;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				6FE6D0AF2A7C7DEC002CFD2F /* podBackgroundViewLight.visualstyleset in Resources */,
 				6FE6D0B82A7C7DEC002CFD2F /* homeScreenBackdrop-application.materialrecipe in Resources */,
 				6FE6D0BA2A7C7DEC002CFD2F /* platterVibrantShadowLight.visualstyleset in Resources */,
+				6FE6D2C92AABBE87002CFD2F /* ADD_YOUR_OWN.txt in Resources */,
 				6FE6D0B32A7C7DEC002CFD2F /* folderLight.materialrecipe in Resources */,
 				6F5DFD682A7974A100081DBD /* corrupted in Resources */,
 				6F5DFD222A796A6A00081DBD /* Preview Assets.xcassets in Resources */,
@@ -855,7 +859,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"Chicken Butt/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
@@ -890,7 +894,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"Chicken Butt/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P4CP47H76;
 				ENABLE_PREVIEWS = YES;
