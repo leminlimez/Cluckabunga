@@ -186,6 +186,7 @@
 		6FE6D2C12AABADAD002CFD2F /* ImagePickerBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerBView.swift; sourceTree = "<group>"; };
 		6FE6D2C32AABADF7002CFD2F /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
 		6FE6D2C82AABBE87002CFD2F /* ADD_YOUR_OWN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADD_YOUR_OWN.txt; sourceTree = "<group>"; };
+		6FE6D2CA2AABBECF002CFD2F /* dynamic_info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dynamic_info.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +341,7 @@
 				6F5DFD5E2A79704700081DBD /* static_info.h */,
 				6FE6D2C82AABBE87002CFD2F /* ADD_YOUR_OWN.txt */,
 				6F5DFD5F2A79704700081DBD /* OLD_dynamic_info.h */,
+				6FE6D2CA2AABBECF002CFD2F /* dynamic_info.h */,
 			);
 			path = info;
 			sourceTree = "<group>";
