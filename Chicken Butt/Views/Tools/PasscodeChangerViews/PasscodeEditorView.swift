@@ -27,6 +27,20 @@ struct PasscodeEditorView: View {
     @State private var directoryType: TelephonyDirType = TelephonyDirType.passcode
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
+    // Exploit Stuffs
+    private var puaf_pages_options = [16, 32, 64, 128, 256, 512, 1024, 2048]
+    @AppStorage("PUAF_Pages_Index") private var puaf_pages_index = 7
+    @AppStorage("PUAF_Pages") private var puaf_pages = 0
+    
+    private var puaf_method_options = ["physpuppet", "smith"]
+    @AppStorage("PUAF_Method") private var puaf_method = 1
+    
+    private var kread_method_options = ["kqueue_workloop_ctl", "sem_open"]
+    @AppStorage("KRead_Method") private var kread_method = 1
+    
+    private var kwrite_method_options = ["dup", "sem_open"]
+    @AppStorage("KWrite_Method") private var kwrite_method = 1
+    
     @State private var sizeLimit: [Int] = [PasscodeSizeLimit.min.rawValue, PasscodeSizeLimit.max.rawValue] // the limits of the custom size (max, min)
     
     let fm = FileManager.default
@@ -351,22 +365,22 @@ struct PasscodeEditorView: View {
                 .foregroundColor(.blue)
                 
                 // export key
-//                Button(action: {
-//                    do {
-//                        let archiveURL: URL? = try PasscodeKeyFaceManager.exportFaceTheme(directoryType)
-//                        // show share menu
-//                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
-//                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
-//                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
-//                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
-//                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
-//                    } catch {
-//                        UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
-//                    }
-//                }) {
-//                    Image(systemName: "square.and.arrow.up")
-//                }
-//                .foregroundColor(.blue)
+                Button(action: {
+                    do {
+                        let archiveURL: URL? = try PasscodeKeyFaceManager.exportFaceTheme(directoryType)
+                        // show share menu
+                        let avc = UIActivityViewController(activityItems: [archiveURL!], applicationActivities: nil)
+                        let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                        avc.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                        avc.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                        UIApplication.shared.windows.first?.rootViewController?.present(avc, animated: true)
+                    } catch {
+                        UIApplication.shared.alert(body: NSLocalizedString("An error occured while exporting key face.", comment: "Passcode export error"))
+                    }
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .foregroundColor(.blue)
             }
         }
         .sheet(isPresented: $isImporting) {
@@ -391,16 +405,46 @@ struct PasscodeEditorView: View {
         }
         .onAppear {
             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
-            currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
-            do {
-                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
-                
-                if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
-                    changedFaces = faces
+            // kfd stuff
+            UIApplication.shared.confirmAlert(title: "kopen needed", body: "The kernel needs to be opened in order for the app to work. Would you like to do that?\n\nREMEMBER TO KCLOSE!! (Hit Apply, even when not changing anything)\n\nNote: Your device may panic (auto reboot) after applying, this will only happen once and is not permanent.", onOK: {
+                // kopen
+                UIApplication.shared.alert(title: "Opening Kernel...", body: "Please wait...", withButton: false)
+
+                puaf_pages = puaf_pages_options[puaf_pages_index]
+                PasscodeKeyFaceManager.kfd = do_kopen(UInt64(puaf_pages), UInt64(puaf_method), UInt64(kread_method), UInt64(kwrite_method))
+
+                // clear previous
+                MainCardController.rmMountedDir()
+
+                if !FileManager.default.fileExists(atPath: NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches") {
+                    do {
+                        try FileManager.default.createDirectory(atPath: NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches", withIntermediateDirectories: true)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
                 }
-            } catch {
-                UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
-            }
+
+                // init fun offsets
+                _offsets_init()
+
+                // redirect
+                PasscodeKeyFaceManager.fullPath = NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches"
+
+                PasscodeKeyFaceManager.vnodeOrig = redirectTelephonyFolder()
+                
+                currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
+                do {
+                    faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
+                    
+                    if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
+                        changedFaces = faces
+                    }
+                } catch {
+                    UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
+                }
+
+                UIApplication.shared.dismissAlert(animated: true)
+            }, noCancel: false)
         }
         .sheet(isPresented: $showingImagePicker) {
             ImagePickerView(image: $faces[changingFaceN], didChange: $canChange)
