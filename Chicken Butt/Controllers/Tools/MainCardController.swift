@@ -56,6 +56,8 @@ class MainCardController {
         "cardBackgroundCombined-watch@2x.png"
     ]
     
+    public static var kopened: Bool = false
+    
     // MARK: General Card Methods
     
     static func rmMountedDir() {

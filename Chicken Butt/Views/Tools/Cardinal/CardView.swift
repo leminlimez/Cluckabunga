@@ -11,7 +11,6 @@ import SwiftUI
 struct CardView: View {
     let fm = FileManager.default
     
-    @State var kfd: UInt64
     @State var vnodeOrig: UInt64
     @State var fullPath: String
     
@@ -38,7 +37,7 @@ struct CardView: View {
             
             if fm.fileExists(atPath: "\(fullPath)/\(card.cardPath)/\(card.imagePath).backup") {
                 Button {
-                    MainCardController.resetChanges(kfd, vnodeOrig: vnodeOrig, card: card, fullPath: fullPath)
+                    MainCardController.resetChanges(PasscodeKeyFaceManager.kfd, vnodeOrig: vnodeOrig, card: card, fullPath: fullPath)
                 } label: {
                     Image(systemName: "arrow.counterclockwise.circle.fill").resizable().scaledToFit().frame(width: 40).foregroundColor(Color.red)
                 }
