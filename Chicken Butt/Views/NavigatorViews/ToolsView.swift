@@ -46,7 +46,7 @@ struct ToolsView: View {
         ]),
         .init(title: NSLocalizedString("Other", comment: "Category of tool"), systemImage: "ellipsis", options: [
 //            .init(key: "AudioView", view: AnyView(AudioView()), title: NSLocalizedString("Audio", comment: "Title of tool"), imageName: "speaker.wave.2.fill"),
-//            .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
+            .init(key: "MainCardView", view: AnyView(MainCardView()), title: NSLocalizedString("Card Changer", comment: "Title of tool"), imageName: "creditcard"),
 //            .init(key: "WhitelistView", view: AnyView(WhitelistView()), title: NSLocalizedString("Whitelist", comment: "Title of tool"), imageName: "app.badge.checkmark"),
 //            .init(key: "FreeloadView", view: AnyView(FreeloadView()), title: NSLocalizedString("Remove three-app limit", comment: "Title of tool"), imageName: "apps.iphone.badge.plus"),
             .init(key: "OtherModsView", view: AnyView(OtherModsView()), title: NSLocalizedString("Miscellaneous", comment: "Title of tool"), imageName: "hammer")
