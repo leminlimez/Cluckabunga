@@ -406,33 +406,48 @@ struct PasscodeEditorView: View {
         .onAppear {
             ipadView = PasscodeKeyFaceManager.getDefaultFaceSize() == KeySize.small.rawValue ? true : false
             // kfd stuff
-            UIApplication.shared.confirmAlert(title: "kopen needed", body: "The kernel needs to be opened in order for the app to work. Would you like to do that?\n\nREMEMBER TO KCLOSE!! (Hit Apply, even when not changing anything)\n\nNote: Your device may panic (auto reboot) after applying, this will only happen once and is not permanent.", onOK: {
-                // kopen
-                UIApplication.shared.alert(title: "Opening Kernel...", body: "Please wait...", withButton: false)
-
-                puaf_pages = puaf_pages_options[puaf_pages_index]
-                PasscodeKeyFaceManager.kfd = do_kopen(UInt64(puaf_pages), UInt64(puaf_method), UInt64(kread_method), UInt64(kwrite_method))
-
-                // clear previous
-                MainCardController.rmMountedDir()
-
-                if !FileManager.default.fileExists(atPath: NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches") {
-                    do {
-                        try FileManager.default.createDirectory(atPath: NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches", withIntermediateDirectories: true)
-                    } catch {
-                        print(error.localizedDescription)
+            if !PasscodeKeyFaceManager.kopened {
+                UIApplication.shared.confirmAlert(title: "kopen needed", body: "The kernel needs to be opened in order for the app to work. Would you like to do that?\n\nREMEMBER TO KCLOSE!! (Hit Apply, even when not changing anything)\n\nNote: Your device may panic (auto reboot) after applying, this will only happen once and is not permanent.", onOK: {
+                    // kopen
+                    UIApplication.shared.alert(title: "Opening Kernel...", body: "Please wait...", withButton: false)
+                    
+                    puaf_pages = puaf_pages_options[puaf_pages_index]
+                    PasscodeKeyFaceManager.kfd = do_kopen(UInt64(puaf_pages), UInt64(puaf_method), UInt64(kread_method), UInt64(kwrite_method))
+                    
+                    // clear previous
+                    MainCardController.rmMountedDir()
+                    
+                    if !FileManager.default.fileExists(atPath: NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches") {
+                        do {
+                            try FileManager.default.createDirectory(atPath: NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches", withIntermediateDirectories: true)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
                     }
-                }
-
-                // init fun offsets
-                _offsets_init()
-
-                // redirect
-                PasscodeKeyFaceManager.fullPath = NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches"
-
-                PasscodeKeyFaceManager.vnodeOrig = redirectTelephonyFolder()
-                
-                currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
+                    
+                    // init fun offsets
+                    _offsets_init()
+                    
+                    // redirect
+                    PasscodeKeyFaceManager.fullPath = NSHomeDirectory() + "/Documents/mounted/PasscodeKeys/Caches"
+                    
+                    PasscodeKeyFaceManager.vnodeOrig = redirectTelephonyFolder()
+                    PasscodeKeyFaceManager.kopened = true
+                    
+                    currentSize = PasscodeKeyFaceManager.getDefaultFaceSize()
+                    do {
+                        faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
+                        
+                        if let faces = UserDefaults.standard.array(forKey: "changedFaces") as? [Bool] {
+                            changedFaces = faces
+                        }
+                    } catch {
+                        UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
+                    }
+                    
+                    UIApplication.shared.dismissAlert(animated: true)
+                }, noCancel: false)
+            } else {
                 do {
                     faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                     
@@ -442,9 +457,7 @@ struct PasscodeEditorView: View {
                 } catch {
                     UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
                 }
-
-                UIApplication.shared.dismissAlert(animated: true)
-            }, noCancel: false)
+            }
         }
         .sheet(isPresented: $showingImagePicker) {
             ImagePickerView(image: $faces[changingFaceN], didChange: $canChange)

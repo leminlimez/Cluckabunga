@@ -37,6 +37,7 @@ class PasscodeKeyFaceManager {
     // Exploit Stuffs
     @State static var kfd: UInt64 = 0
     public static var vnodeOrig: UInt64 = 0
+    public static var kopened: Bool = false
     public static var fullPath: String = ""
         
     private static var puaf_pages_options = [16, 32, 64, 128, 256, 512, 1024, 2048]
