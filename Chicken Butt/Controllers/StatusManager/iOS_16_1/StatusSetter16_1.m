@@ -184,7 +184,9 @@ typedef struct {
 
 - (void) applyChanges:(StatusBarOverrideData*)overrides {
     FILE *outfile;
-    outfile = fopen ("/var/mobile/Library/SpringBoard/statusBarOverridesEditing", "w+");
+    NSString *path = [NSString stringWithFormat: @"%@%@", NSHomeDirectory(), @"/Documents/statusBarOverridesEditing"];
+    const char *cPath = [path UTF8String];
+    outfile = fopen (cPath, "w+");
     if (outfile == NULL) return;
     
     char padding[256] = {'\0'};
@@ -197,12 +199,13 @@ typedef struct {
 
 - (StatusBarOverrideData*) getOverrides {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *path = @"/var/mobile/Library/SpringBoard/statusBarOverridesEditing";
+    NSString *path = [NSString stringWithFormat: @"%@%@", NSHomeDirectory(), @"/Documents/statusBarOverridesEditing"];
     if ([fileManager fileExistsAtPath:path]){
         FILE *infile;
         NSMutableData* data = [NSMutableData dataWithLength:sizeof(StatusBarOverrideData)];
         StatusBarOverrideData* input = [data mutableBytes];
-        infile = fopen ("/var/mobile/Library/SpringBoard/statusBarOverridesEditing", "r");
+        const char *cPath = [path UTF8String];
+        infile = fopen (cPath, "r");
         if (infile == NULL) return NULL;
         if (fread(input, sizeof(StatusBarOverrideData), 1, infile) != 0) {
             fclose (infile);
