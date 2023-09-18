@@ -258,10 +258,10 @@ struct PasscodeEditorView: View {
                             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                         }
                         Spacer()
-                        Button("Remove all") {
+                        Button("Reset faces") {
                             do {
                                 try PasscodeKeyFaceManager.removeAllFaces(directoryType)
-                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
+//                                faces = try PasscodeKeyFaceManager.getFaces(directoryType, colorScheme: colorScheme)
                             } catch {
                                 UIApplication.shared.alert(body: NSLocalizedString("An error occured.", comment: "") + " \(error)")
                             }
@@ -411,7 +411,7 @@ struct PasscodeEditorView: View {
                     // kopen
                     UIApplication.shared.alert(title: "Opening Kernel...", body: "Please wait...", withButton: false)
                     
-                    if !MainCardController.kopened {
+                    if !MainCardController.kopened && !StatusManagerSwift.kopened {
                         puaf_pages = puaf_pages_options[puaf_pages_index]
                         PasscodeKeyFaceManager.kfd = do_kopen(UInt64(puaf_pages), UInt64(puaf_method), UInt64(kread_method), UInt64(kwrite_method))
                         
