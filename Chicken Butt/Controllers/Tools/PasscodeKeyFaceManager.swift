@@ -105,16 +105,18 @@ class PasscodeKeyFaceManager {
         let fm = FileManager.default
         
         for imageURL in try fm.contentsOfDirectory(at: try telephonyUIURL(dir), includingPropertiesForKeys: nil) {
-            let size = CGSize(width: KeySize.small.rawValue, height: KeySize.small.rawValue)
-            UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
-            UIImage().draw(in: CGRect(origin: .zero, size: size))
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            guard let png = newImage?.pngData() else { throw "No png data" }
-            kfdOverwriteImage(filePath: imageURL.path, image: png)
+            try fm.removeItem(at: imageURL)
+//            let size = CGSize(width: KeySize.small.rawValue, height: KeySize.small.rawValue)
+//            UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
+//            UIImage().draw(in: CGRect(origin: .zero, size: size))
+//            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+//
+//            guard let png = newImage?.pngData() else { throw "No png data" }
+//            kfdOverwriteImage(filePath: imageURL.path, image: png)
 //            try png.write(to: imageURL)
         }
+        try applyFaces()
     }
     
     static func getCharacterFromURL(url: URL) throws -> Character {
