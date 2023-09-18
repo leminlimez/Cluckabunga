@@ -37,9 +37,9 @@ struct ToolsView: View {
             .init(key: "LockView", view: AnyView(LockView()), title: NSLocalizedString("Locks", comment: "Title of tool"), imageName: "lock"),
 //            .init(key: "LSFootnoteChangerView", view: AnyView(LSFootnoteChangerView()), title: NSLocalizedString("Lock Screen Footnote", comment: "Title of tool"), imageName: "iphone")
         ]),
-//        .init(title: NSLocalizedString("Control Center", comment: "Category of tool"), systemImage: "switch.2", options: [
-//            .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi")
-//        ]),
+        .init(title: NSLocalizedString("Control Center", comment: "Category of tool"), systemImage: "switch.2", options: [
+            .init(key: "StatusBarView", view: AnyView(StatusBarView()), title: NSLocalizedString("Status Bar", comment: "Title of tool"), imageName: "wifi")
+        ]),
         .init(title: NSLocalizedString("Apps", comment: "Category of tool"), systemImage: "app", options: [
 //            .init(key: "CalculatorErrorView", view: AnyView(CalculatorErrorView()), title: NSLocalizedString("Calculator Error Message", comment: "Title of tool"), imageName: "function"),
             .init(key: "SettingsCustomizerView", view: AnyView(SettingsCustomizerView()), title: NSLocalizedString("Settings App Customizer", comment: "Title of tool"), imageName: "gear")

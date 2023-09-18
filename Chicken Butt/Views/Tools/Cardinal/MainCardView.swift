@@ -109,7 +109,7 @@ struct MainCardView: View {
                             // kopen
                             UIApplication.shared.alert(title: "Opening Kernel...", body: "Please wait...", withButton: false)
                             
-                            if !PasscodeKeyFaceManager.kopened {
+                            if !PasscodeKeyFaceManager.kopened && !StatusManagerSwift.kopened {
                                 puaf_pages = puaf_pages_options[puaf_pages_index]
                                 PasscodeKeyFaceManager.kfd = do_kopen(UInt64(puaf_pages), UInt64(puaf_method), UInt64(kread_method), UInt64(kwrite_method))
                                 

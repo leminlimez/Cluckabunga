@@ -9,3 +9,4 @@
 #import "Exploit/fun/utils.h"
 #import "Exploit/fun/offsets.h"
 #import "Exploit/fun/thanks_opa334dev_htrowii.h"
+#import "StatusManager.h"
