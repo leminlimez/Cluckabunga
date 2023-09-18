@@ -164,12 +164,11 @@ struct StatusBarView: View {
                                         
                                         UIApplication.shared.dismissAlert(animated: true)
                                         do {
-                                            if fm.fileExists(atPath: NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides") {
-                                                overwritePath(NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides", NSHomeDirectory() + "/Documents/statusBarOverridesEditing")
-                                            } else {
+                                            if !fm.fileExists(atPath: NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides") {
                                                 _ = try fm.replaceItemAt(URL(fileURLWithPath: NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides"), withItemAt: URL(fileURLWithPath: NSHomeDirectory() + "/Documents/statusBarOverridesEditing"))
                                             }
                                             UnRedirectAndRemoveFolder(vnodeOrig, NSHomeDirectory() + "/Documents/mounted/SpringBoard")
+                                            overwritePath(NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides", NSHomeDirectory() + "/Documents/statusBarOverridesEditing")
                                             
                                             // kclose
                                             do_kclose(PasscodeKeyFaceManager.kfd)
