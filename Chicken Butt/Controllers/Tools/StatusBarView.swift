@@ -639,7 +639,7 @@ struct StatusBarView: View {
                                         StatusManagerSwift.kopened = true
                                         
                                         UIApplication.shared.dismissAlert(animated: true)
-                                        overwritePath(NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides", URL(fileReferenceLiteralResourceName: "statusBarOverrides").path)
+                                        try? fm.removeItem(atPath: NSHomeDirectory() + "/Documents/mounted/SpringBoard/statusBarOverrides")
                                         try? fm.removeItem(atPath: NSHomeDirectory() + "/Documents/statusBarOverridesEditing")
                                         UnRedirectAndRemoveFolder(vnodeOrig, NSHomeDirectory() + "/Documents/mounted/SpringBoard")
                                         
